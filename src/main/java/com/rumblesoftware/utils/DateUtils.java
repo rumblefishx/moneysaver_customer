@@ -3,21 +3,25 @@ package com.rumblesoftware.utils;
 import java.text.ParseException;
 import java.util.Date;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.SimpleDateFormat;
 
 @Component
+@PropertySource("classpath:application.properties")
 public class DateUtils {
 
-	//TODO: Load date pattern from properties
+	@Value(value = "${moneysaver.date.pattern}")
+	public String datePattern;
 	
 	public Date castStringToDate(String dateStr) {
 		
 		Date dt = null;
 		
-		DateFormat df = new SimpleDateFormat("dd/mm/YYYY");
+		DateFormat df = new SimpleDateFormat(datePattern);
 		
 		try {
 			dt = df.parse(dateStr);
@@ -30,7 +34,7 @@ public class DateUtils {
 	}
 	
 	public String castDateToString(Date dt) {
-		DateFormat df = new SimpleDateFormat("dd/mm/YYYY");
+		DateFormat df = new SimpleDateFormat(datePattern);
 		return df.format(dt);
 	}
 	

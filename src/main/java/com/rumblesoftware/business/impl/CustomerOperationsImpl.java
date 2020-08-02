@@ -23,6 +23,8 @@ public class CustomerOperationsImpl implements CustomerOperations{
 	public CustomerOutputDTO createCustomer(CustomerInputDTO customer) {
 		
 		CustomerEntity entity = customerConverter.convertInputToEntity(customer);
+		
+		System.out.println("Objeto Usado--> " + entity.toString());
 		entity = repository.save(entity);
 		
 		return customerConverter.convertEntityToOutput(entity);

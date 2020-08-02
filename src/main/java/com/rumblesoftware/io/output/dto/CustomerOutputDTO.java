@@ -1,5 +1,7 @@
 package com.rumblesoftware.io.output.dto;
 
+import java.math.BigDecimal;
+
 import com.rumblesoftware.io.enums.Gender;
 
 public class CustomerOutputDTO {
@@ -17,6 +19,8 @@ public class CustomerOutputDTO {
 	private String email;
 	
 	private String dateOfBirth;
+	
+	private BigDecimal userBalance;
 
 	public long getCustomerId() {
 		return customerId;
@@ -72,6 +76,14 @@ public class CustomerOutputDTO {
 
 	public void setGender(Gender gender) {
 		this.gender = gender;
+	}
+
+	public BigDecimal getUserBalance() {
+		return userBalance;
+	}
+
+	public void setUserBalance(BigDecimal userBalance) {
+		this.userBalance = userBalance;
 	}
 	
 	

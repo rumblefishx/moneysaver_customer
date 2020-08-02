@@ -1,5 +1,7 @@
 package com.rumblesoftware.io.input.dto;
 
+import java.math.BigDecimal;
+
 import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -45,6 +47,8 @@ public class CustomerInputDTO {
 	@NotNull(message = "{customer.input.dateofbirth.notnull}")
 	@ValidDate(message="{customer.input.dateofbirth.invalid}")
 	private String dateOfBirth;
+	
+	private BigDecimal userBalance;
 
 	public String getName() {
 		return name;
@@ -93,7 +97,14 @@ public class CustomerInputDTO {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	
+
+	public BigDecimal getUserBalance() {
+		return userBalance;
+	}
+
+	public void setUserBalance(BigDecimal userBalance) {
+		this.userBalance = userBalance;
+	}
 	
 	
 	

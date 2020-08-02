@@ -1,6 +1,7 @@
 package com.rumblesoftware.io.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -48,21 +49,32 @@ public class CustomerEntity implements Serializable {
 	@NotNull
 	private String email;
 	
-	@Column(length = 12)
+	@Column(length = 512)
 	@NotNull
 	private String password;
+	
+	@NotNull
+	@Column(length = 512)
+	private String salt;
+	
+	@Column
+	@NotNull
+	private BigDecimal userBalance;
 	
 	@Column(length = 1)
 	@NotNull
 	private boolean isActive;
 	
 	@Column
+	@NotNull
 	private Date creationDate;
 	
 	@Column
+	@NotNull
 	private Date lastUpdate;
 	
 	@Column
+	@NotNull
 	private String responsibleUser;
 
 	public Long getCustomerId() {
@@ -165,6 +177,31 @@ public class CustomerEntity implements Serializable {
 		
 		this.responsibleUser = RESPONSIBLE_USER;
 	}
+
+	public BigDecimal getUserBalance() {
+		return userBalance;
+	}
+
+	public void setUserBalance(BigDecimal userBalance) {
+		this.userBalance = userBalance;
+	}
+
+	public String getSalt() {
+		return salt;
+	}
+
+	public void setSalt(String salt) {
+		this.salt = salt;
+	}
+
+	@Override
+	public String toString() {
+		return "CustomerEntity [customerId=" + customerId + ", name=" + name + ", surname=" + surname + ", dateOfBirth="
+				+ dateOfBirth + ", gender=" + gender + ", email=" + email + ", password=" + password + ", salt=" + salt
+				+ ", userBalance=" + userBalance + ", isActive=" + isActive + ", creationDate=" + creationDate
+				+ ", lastUpdate=" + lastUpdate + ", responsibleUser=" + responsibleUser + "]";
+	}
+	
 	
 	
 }

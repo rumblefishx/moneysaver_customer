@@ -1,5 +1,8 @@
 package com.rumblesoftware.io.input.dto;
 
+import java.math.BigDecimal;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -7,6 +10,7 @@ import com.rumblesoftware.io.enums.Gender;
 import com.rumblesoftware.io.model.CustomerEntity;
 import com.rumblesoftware.io.output.dto.CustomerOutputDTO;
 import com.rumblesoftware.utils.DateUtils;
+import com.rumblesoftware.utils.PasswordSecurity;
 
 @Component
 public class CustomerIOConverter {
@@ -24,6 +28,7 @@ public class CustomerIOConverter {
 		output.setEmail(input.getEmail());
 		output.setName(input.getName());
 		output.setSurname(input.getSurname());
+		output.setUserBalance(input.getUserBalance());
 		
 		return output;
 	}
@@ -37,8 +42,21 @@ public class CustomerIOConverter {
 		entity.setGender(Gender.castStringToEnum(input.getGender()));
 		entity.setName(input.getName());
 		
-		//TODO: Create encryption here
-		entity.setPassword(input.getPassword());
+		if(input.getUserBalance() == null) {
+			entity.setUserBalance(BigDecimal.ZERO);
+		} else {
+			entity.setUserBalance(input.getUserBalance());	
+		}
+			
+		String salt = PasswordSecurity.generateRandomSalt();
+		
+		Optional<String> securePassowrd = PasswordSecurity.hashPassword(input.getPassword(), salt);
+		
+		if(securePassowrd.isPresent()) {
+			entity.setPassword(securePassowrd.get());
+			entity.setSalt(salt);
+		}
+		
 		entity.setSurname(input.getSurname());
 	
 		return entity;
@@ -53,6 +71,7 @@ public class CustomerIOConverter {
 		output.setEmail(entity.getEmail());
 		output.setName(entity.getName());
 		output.setSurname(entity.getSurname());
+		output.setUserBalance(entity.getUserBalance());
 		
 		return output;
 	}
