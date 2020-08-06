@@ -1,7 +1,6 @@
 package com.rumblesoftware.io.model;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -14,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.PrePersist;
 import javax.validation.constraints.NotNull;
 
+import com.rumblesoftware.enums.ExternalIdType;
 import com.rumblesoftware.io.enums.Gender;
 
 @Entity
@@ -27,53 +27,55 @@ public class CustomerEntity implements Serializable {
 	private static final String RESPONSIBLE_USER = "customer_service";
 
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "customer_id")
 	private Long customerId;
 	
-	@Column(length = 25)
+	@Column(name="external_id_type",length = 25)
+	@Enumerated(EnumType.STRING)
+	private ExternalIdType externalIdType;
+	
+	@Column(name="external_id",length = 255)
+	private String externalId;
+	
+	@Column(name="name",length = 25)
 	@NotNull
 	private String name;
 	
-	@Column(length = 60)
+	@Column(name="surname",length = 60)
 	@NotNull
 	private String surname;
 	
-	@NotNull
+	@Column(name="date_of_birth")
 	private Date dateOfBirth;
 	
 	@Enumerated(EnumType.STRING)
-	@Column(length = 1)
+	@Column(name="gender",length = 1)
 	@NotNull
 	private Gender gender;
 
-	@Column(length = 100)
+	@Column(name="email",length = 100)
 	@NotNull
 	private String email;
 	
-	@Column(length = 512)
-	@NotNull
+	@Column(name="password",length = 512)
 	private String password;
 	
-	@NotNull
-	@Column(length = 512)
+	@Column(name="salt",length = 512)
 	private String salt;
 	
-	@Column
-	@NotNull
-	private BigDecimal userBalance;
-	
-	@Column(length = 1)
+	@Column(name="user_status",length = 1)
 	@NotNull
 	private boolean isActive;
 	
-	@Column
+	@Column(name="creation_date")
 	@NotNull
 	private Date creationDate;
 	
-	@Column
+	@Column(name="last_update")
 	@NotNull
 	private Date lastUpdate;
 	
-	@Column
+	@Column(name="responsible_user")
 	@NotNull
 	private String responsibleUser;
 
@@ -178,14 +180,6 @@ public class CustomerEntity implements Serializable {
 		this.responsibleUser = RESPONSIBLE_USER;
 	}
 
-	public BigDecimal getUserBalance() {
-		return userBalance;
-	}
-
-	public void setUserBalance(BigDecimal userBalance) {
-		this.userBalance = userBalance;
-	}
-
 	public String getSalt() {
 		return salt;
 	}
@@ -198,10 +192,11 @@ public class CustomerEntity implements Serializable {
 	public String toString() {
 		return "CustomerEntity [customerId=" + customerId + ", name=" + name + ", surname=" + surname + ", dateOfBirth="
 				+ dateOfBirth + ", gender=" + gender + ", email=" + email + ", password=" + password + ", salt=" + salt
-				+ ", userBalance=" + userBalance + ", isActive=" + isActive + ", creationDate=" + creationDate
-				+ ", lastUpdate=" + lastUpdate + ", responsibleUser=" + responsibleUser + "]";
+				+ ", isActive=" + isActive + ", creationDate=" + creationDate + ", lastUpdate=" + lastUpdate
+				+ ", responsibleUser=" + responsibleUser + "]";
 	}
-	
+
+
 	
 	
 }

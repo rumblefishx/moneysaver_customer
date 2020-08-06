@@ -5,17 +5,36 @@ import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
 import java.util.Arrays;
 import java.util.Base64;
+import java.util.Locale;
 import java.util.Optional;
 
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.stereotype.Component;
+
+import com.rumblesoftware.exception.PasswordHashException;
+
+@Component
 public class PasswordSecurity {
 
 	public static final int INTERACTIONS = 1500; //65535
 	public static final int KEY_LENGTH = 512;
 	public static final String ALGORITHM = "PBKDF2WithHmacSHA512";
+	
+	private static Logger logger = LogManager.getLogger(PasswordSecurity.class);
 
+	private static final String MSG_EXCEPTION_HASHING_EX = "password.hashing.exception.message";
+	
+	private static final String MSG_LOG_HASHING = "password.hashing.log.message";
+	
+	@Autowired
+	private static MessageSource ms;
+	
 	public static String generateRandomSalt() {
 		SecureRandom random = new SecureRandom();
 		
@@ -29,7 +48,7 @@ public class PasswordSecurity {
 		return Base64.getEncoder().encodeToString(salt);
 	}
 
-	public static Optional<String> hashPassword(String password, String salt) {
+	public Optional<String> hashPassword(String password, String salt) {
 
 		// cast the password into char array
 		char[] passwordChars = password.toCharArray();
@@ -54,16 +73,15 @@ public class PasswordSecurity {
 			return Optional.of(Base64.getEncoder().encodeToString(securePassword));
 
 		} catch (NoSuchAlgorithmException | InvalidKeySpecException ex) {
-			System.err.println("Exception encountered in hashPassword()");
-			//TODO: IMPLEMENT LOG4J HERE AND THROW A RUNTIME EXCEPTION
-			return Optional.empty();
+			logger.error(String.format(ms.getMessage(MSG_LOG_HASHING,null,Locale.getDefault()), ex.toString()));
+			throw new PasswordHashException(ms.getMessage(MSG_EXCEPTION_HASHING_EX, null, Locale.getDefault()));
 
 		} finally {
 			spec.clearPassword();
 		}
 	}
 	
-	public static boolean verifyPassword (String password, String key, String salt) {
+	public boolean verifyPassword (String password, String key, String salt) {
 	    Optional<String> optEncrypted = hashPassword(password, salt);
 	    if (!optEncrypted.isPresent()) return false;
 	    return optEncrypted.get().equals(key);

@@ -7,5 +7,6 @@ import com.rumblesoftware.io.model.CustomerEntity;
 
 @Repository
 public interface CustomerRepository extends JpaRepository<CustomerEntity, Long> {
+	
 
 }
