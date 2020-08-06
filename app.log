@@ -1,0 +1,330 @@
+[INFO ] 06-08-2020 21:50:39.830 [restartedMain] MoneySaverApplication - Starting MoneySaverApplication on DESKTOP-KHJ0OA6 with PID 15424 (C:\Users\Cleiton\eclipse-workspace\ms_customer_profile\target\classes started by Cleiton in C:\Users\Cleiton\eclipse-workspace\ms_customer_profile)
+[INFO ] 06-08-2020 21:50:39.888 [restartedMain] MoneySaverApplication - No active profile set, falling back to default profiles: default
+[INFO ] 06-08-2020 21:50:40.079 [restartedMain] ChangeableUrls - The Class-Path manifest attribute in C:\Users\Cleiton\.m2\repository\org\glassfish\jaxb\jaxb-runtime\2.3.1\jaxb-runtime-2.3.1.jar referenced one or more files that do not exist: file:/C:/Users/Cleiton/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/jaxb-api-2.3.1.jar,file:/C:/Users/Cleiton/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/txw2-2.3.1.jar,file:/C:/Users/Cleiton/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/istack-commons-runtime-3.0.7.jar,file:/C:/Users/Cleiton/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/stax-ex-1.8.jar,file:/C:/Users/Cleiton/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/FastInfoset-1.2.15.jar,file:/C:/Users/Cleiton/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/javax.activation-api-1.2.0.jar
+[INFO ] 06-08-2020 21:50:40.086 [restartedMain] DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 06-08-2020 21:50:40.087 [restartedMain] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 06-08-2020 21:50:42.296 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+[INFO ] 06-08-2020 21:50:42.468 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 153ms. Found 1 JPA repository interfaces.
+[INFO ] 06-08-2020 21:50:44.590 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 06-08-2020 21:50:44.617 [restartedMain] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 06-08-2020 21:50:44.618 [restartedMain] StandardService - Starting service [Tomcat]
+[INFO ] 06-08-2020 21:50:44.619 [restartedMain] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.36]
+[INFO ] 06-08-2020 21:50:44.878 [restartedMain] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 06-08-2020 21:50:44.879 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4791 ms
+[INFO ] 06-08-2020 21:50:45.200 [restartedMain] ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 06-08-2020 21:50:45.360 [task-1] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 06-08-2020 21:50:45.385 [restartedMain] AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static org.springframework.context.MessageSource com.rumblesoftware.utils.PasswordSecurity.ms
+[INFO ] 06-08-2020 21:50:45.578 [task-1] Version - HHH000412: Hibernate ORM core version 5.4.17.Final
+[INFO ] 06-08-2020 21:50:46.004 [task-1] Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+[WARN ] 06-08-2020 21:50:46.050 [restartedMain] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 06-08-2020 21:50:46.373 [task-1] HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 06-08-2020 21:50:46.471 [restartedMain] PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[INFO ] 06-08-2020 21:50:46.827 [restartedMain] OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 06-08-2020 21:50:47.406 [restartedMain] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 06-08-2020 21:50:47.441 [task-1] HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 06-08-2020 21:50:47.528 [task-1] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 06-08-2020 21:50:49.410 [restartedMain] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 06-08-2020 21:50:49.413 [restartedMain] DocumentationPluginsBootstrapper - Context refreshed
+[INFO ] 06-08-2020 21:50:49.476 [restartedMain] DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[INFO ] 06-08-2020 21:50:49.564 [restartedMain] ApiListingReferenceScanner - Scanning for api listing references
+[INFO ] 06-08-2020 21:50:49.716 [task-1] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 06-08-2020 21:50:49.741 [task-1] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 06-08-2020 21:50:50.064 [restartedMain] DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+[INFO ] 06-08-2020 21:50:50.517 [restartedMain] DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+[INFO ] 06-08-2020 21:50:50.539 [restartedMain] MoneySaverApplication - Started MoneySaverApplication in 11.684 seconds (JVM running for 13.707)
+[INFO ] 06-08-2020 21:51:03.414 [http-nio-8080-exec-1] [/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 06-08-2020 21:51:03.414 [http-nio-8080-exec-1] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 06-08-2020 21:51:03.428 [http-nio-8080-exec-1] DispatcherServlet - Completed initialization in 13 ms
+[DEBUG] 06-08-2020 21:51:03.676 [http-nio-8080-exec-1] SQL - select customeren0_.customer_id as customer1_0_0_, customeren0_.creation_date as creation2_0_0_, customeren0_.date_of_birth as date_of_3_0_0_, customeren0_.email as email4_0_0_, customeren0_.external_id as external5_0_0_, customeren0_.external_id_type as external6_0_0_, customeren0_.gender as gender7_0_0_, customeren0_.user_status as user_sta8_0_0_, customeren0_.last_update as last_upd9_0_0_, customeren0_.name as name10_0_0_, customeren0_.password as passwor11_0_0_, customeren0_.responsible_user as respons12_0_0_, customeren0_.salt as salt13_0_0_, customeren0_.surname as surname14_0_0_ from customer_entity customeren0_ where customeren0_.customer_id=?
+[DEBUG] 06-08-2020 21:51:04.045 [http-nio-8080-exec-1] SQL - update customer_entity set creation_date=?, date_of_birth=?, email=?, external_id=?, external_id_type=?, gender=?, user_status=?, last_update=?, name=?, password=?, responsible_user=?, salt=?, surname=? where customer_id=?
+[INFO ] 06-08-2020 21:52:19.679 [Thread-178] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 06-08-2020 21:52:19.683 [Thread-178] ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 06-08-2020 21:52:19.688 [Thread-178] HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 06-08-2020 21:52:19.718 [Thread-178] HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 06-08-2020 21:52:19.955 [restartedMain] MoneySaverApplication - Starting MoneySaverApplication on DESKTOP-KHJ0OA6 with PID 15424 (C:\Users\Cleiton\eclipse-workspace\ms_customer_profile\target\classes started by Cleiton in C:\Users\Cleiton\eclipse-workspace\ms_customer_profile)
+[INFO ] 06-08-2020 21:52:19.961 [restartedMain] MoneySaverApplication - No active profile set, falling back to default profiles: default
+[INFO ] 06-08-2020 21:52:21.104 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+[INFO ] 06-08-2020 21:52:21.142 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 36ms. Found 1 JPA repository interfaces.
+[INFO ] 06-08-2020 21:52:21.566 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 06-08-2020 21:52:21.568 [restartedMain] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 06-08-2020 21:52:21.584 [restartedMain] StandardService - Starting service [Tomcat]
+[INFO ] 06-08-2020 21:52:21.585 [restartedMain] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.36]
+[INFO ] 06-08-2020 21:52:21.675 [restartedMain] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 06-08-2020 21:52:21.676 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1703 ms
+[INFO ] 06-08-2020 21:52:21.790 [restartedMain] ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 06-08-2020 21:52:21.807 [task-1] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 06-08-2020 21:52:21.824 [task-1] HikariDataSource - HikariPool-2 - Starting...
+[INFO ] 06-08-2020 21:52:21.840 [restartedMain] AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static org.springframework.context.MessageSource com.rumblesoftware.utils.PasswordSecurity.ms
+[INFO ] 06-08-2020 21:52:21.983 [task-1] HikariDataSource - HikariPool-2 - Start completed.
+[INFO ] 06-08-2020 21:52:21.984 [task-1] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[WARN ] 06-08-2020 21:52:22.158 [restartedMain] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 06-08-2020 21:52:22.251 [task-1] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 06-08-2020 21:52:22.253 [task-1] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 06-08-2020 21:52:22.285 [task-2] OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 06-08-2020 21:52:22.314 [restartedMain] PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[INFO ] 06-08-2020 21:52:22.723 [restartedMain] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 06-08-2020 21:52:22.732 [restartedMain] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 06-08-2020 21:52:22.734 [restartedMain] DocumentationPluginsBootstrapper - Context refreshed
+[INFO ] 06-08-2020 21:52:22.736 [restartedMain] DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[INFO ] 06-08-2020 21:52:22.759 [restartedMain] ApiListingReferenceScanner - Scanning for api listing references
+[INFO ] 06-08-2020 21:52:23.062 [restartedMain] DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+[INFO ] 06-08-2020 21:52:23.225 [restartedMain] DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+[INFO ] 06-08-2020 21:52:23.250 [restartedMain] MoneySaverApplication - Started MoneySaverApplication in 3.443 seconds (JVM running for 106.417)
+[INFO ] 06-08-2020 21:52:23.257 [restartedMain] ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+[INFO ] 06-08-2020 21:53:46.215 [Thread-182] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 06-08-2020 21:53:46.218 [Thread-182] ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 06-08-2020 21:53:46.219 [Thread-182] HikariDataSource - HikariPool-2 - Shutdown initiated...
+[INFO ] 06-08-2020 21:53:46.254 [Thread-182] HikariDataSource - HikariPool-2 - Shutdown completed.
+[INFO ] 06-08-2020 21:53:46.638 [restartedMain] MoneySaverApplication - Starting MoneySaverApplication on DESKTOP-KHJ0OA6 with PID 15424 (C:\Users\Cleiton\eclipse-workspace\ms_customer_profile\target\classes started by Cleiton in C:\Users\Cleiton\eclipse-workspace\ms_customer_profile)
+[INFO ] 06-08-2020 21:53:46.639 [restartedMain] MoneySaverApplication - No active profile set, falling back to default profiles: default
+[INFO ] 06-08-2020 21:53:49.443 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+[INFO ] 06-08-2020 21:53:49.517 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 72ms. Found 1 JPA repository interfaces.
+[INFO ] 06-08-2020 21:53:49.977 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 06-08-2020 21:53:49.979 [restartedMain] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 06-08-2020 21:53:49.981 [restartedMain] StandardService - Starting service [Tomcat]
+[INFO ] 06-08-2020 21:53:49.991 [restartedMain] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.36]
+[INFO ] 06-08-2020 21:53:50.102 [restartedMain] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 06-08-2020 21:53:50.109 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3460 ms
+[INFO ] 06-08-2020 21:53:50.244 [restartedMain] ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 06-08-2020 21:53:50.307 [task-1] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 06-08-2020 21:53:50.327 [restartedMain] AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static org.springframework.context.MessageSource com.rumblesoftware.utils.PasswordSecurity.ms
+[WARN ] 06-08-2020 21:53:50.523 [restartedMain] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 06-08-2020 21:53:50.698 [restartedMain] PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[INFO ] 06-08-2020 21:53:50.848 [restartedMain] OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 06-08-2020 21:53:51.052 [restartedMain] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 06-08-2020 21:53:51.059 [restartedMain] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 06-08-2020 21:53:51.060 [restartedMain] DocumentationPluginsBootstrapper - Context refreshed
+[INFO ] 06-08-2020 21:53:51.062 [restartedMain] DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[INFO ] 06-08-2020 21:53:51.072 [restartedMain] ApiListingReferenceScanner - Scanning for api listing references
+[INFO ] 06-08-2020 21:53:51.262 [restartedMain] DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+[INFO ] 06-08-2020 21:53:51.341 [task-1] HikariDataSource - HikariPool-3 - Starting...
+[INFO ] 06-08-2020 21:53:51.456 [task-1] HikariDataSource - HikariPool-3 - Start completed.
+[INFO ] 06-08-2020 21:53:51.457 [task-1] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 06-08-2020 21:53:51.684 [task-1] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 06-08-2020 21:53:51.685 [task-1] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 06-08-2020 21:53:51.746 [restartedMain] DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+[INFO ] 06-08-2020 21:53:51.753 [restartedMain] MoneySaverApplication - Started MoneySaverApplication in 5.372 seconds (JVM running for 194.921)
+[INFO ] 06-08-2020 21:53:51.756 [restartedMain] ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+[INFO ] 06-08-2020 21:53:56.643 [Thread-361] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 06-08-2020 21:53:56.645 [Thread-361] ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 06-08-2020 21:53:56.645 [Thread-361] HikariDataSource - HikariPool-3 - Shutdown initiated...
+[INFO ] 06-08-2020 21:53:56.667 [Thread-361] HikariDataSource - HikariPool-3 - Shutdown completed.
+[INFO ] 06-08-2020 21:53:57.375 [restartedMain] MoneySaverApplication - Starting MoneySaverApplication on DESKTOP-KHJ0OA6 with PID 15424 (C:\Users\Cleiton\eclipse-workspace\ms_customer_profile\target\classes started by Cleiton in C:\Users\Cleiton\eclipse-workspace\ms_customer_profile)
+[INFO ] 06-08-2020 21:53:57.378 [restartedMain] MoneySaverApplication - No active profile set, falling back to default profiles: default
+[INFO ] 06-08-2020 21:53:59.181 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+[INFO ] 06-08-2020 21:53:59.249 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 65ms. Found 1 JPA repository interfaces.
+[INFO ] 06-08-2020 21:53:59.692 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 06-08-2020 21:53:59.694 [restartedMain] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 06-08-2020 21:53:59.695 [restartedMain] StandardService - Starting service [Tomcat]
+[INFO ] 06-08-2020 21:53:59.696 [restartedMain] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.36]
+[INFO ] 06-08-2020 21:53:59.769 [restartedMain] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 06-08-2020 21:53:59.770 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2383 ms
+[INFO ] 06-08-2020 21:54:00.323 [restartedMain] ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 06-08-2020 21:54:00.349 [task-1] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 06-08-2020 21:54:00.369 [task-1] HikariDataSource - HikariPool-4 - Starting...
+[INFO ] 06-08-2020 21:54:00.370 [restartedMain] AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static org.springframework.context.MessageSource com.rumblesoftware.utils.PasswordSecurity.ms
+[WARN ] 06-08-2020 21:54:00.612 [restartedMain] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 06-08-2020 21:54:00.770 [restartedMain] PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[INFO ] 06-08-2020 21:54:00.922 [restartedMain] OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 06-08-2020 21:54:01.109 [restartedMain] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 06-08-2020 21:54:01.119 [restartedMain] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 06-08-2020 21:54:01.121 [restartedMain] DocumentationPluginsBootstrapper - Context refreshed
+[INFO ] 06-08-2020 21:54:01.122 [restartedMain] DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[INFO ] 06-08-2020 21:54:01.133 [restartedMain] ApiListingReferenceScanner - Scanning for api listing references
+[INFO ] 06-08-2020 21:54:01.246 [restartedMain] DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+[INFO ] 06-08-2020 21:54:01.339 [task-1] HikariDataSource - HikariPool-4 - Start completed.
+[INFO ] 06-08-2020 21:54:01.339 [task-1] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 06-08-2020 21:54:01.538 [task-1] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 06-08-2020 21:54:01.539 [task-1] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 06-08-2020 21:54:01.617 [restartedMain] DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+[INFO ] 06-08-2020 21:54:01.627 [restartedMain] MoneySaverApplication - Started MoneySaverApplication in 4.852 seconds (JVM running for 204.794)
+[INFO ] 06-08-2020 21:54:01.634 [restartedMain] ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+[INFO ] 06-08-2020 21:54:06.358 [http-nio-8080-exec-1] [/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 06-08-2020 21:54:06.359 [http-nio-8080-exec-1] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 06-08-2020 21:54:06.369 [http-nio-8080-exec-1] DispatcherServlet - Completed initialization in 10 ms
+[DEBUG] 06-08-2020 21:54:06.395 [http-nio-8080-exec-1] SQL - select customeren0_.customer_id as customer1_0_0_, customeren0_.creation_date as creation2_0_0_, customeren0_.date_of_birth as date_of_3_0_0_, customeren0_.email as email4_0_0_, customeren0_.external_id as external5_0_0_, customeren0_.external_id_type as external6_0_0_, customeren0_.gender as gender7_0_0_, customeren0_.user_status as user_sta8_0_0_, customeren0_.last_update as last_upd9_0_0_, customeren0_.name as name10_0_0_, customeren0_.password as passwor11_0_0_, customeren0_.responsible_user as respons12_0_0_, customeren0_.salt as salt13_0_0_, customeren0_.surname as surname14_0_0_ from customer_entity customeren0_ where customeren0_.customer_id=?
+[DEBUG] 06-08-2020 21:54:06.469 [http-nio-8080-exec-1] SQL - update customer_entity set creation_date=?, date_of_birth=?, email=?, external_id=?, external_id_type=?, gender=?, user_status=?, last_update=?, name=?, password=?, responsible_user=?, salt=?, surname=? where customer_id=?
+[INFO ] 06-08-2020 21:54:47.050 [Thread-540] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 06-08-2020 21:54:47.051 [Thread-540] ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 06-08-2020 21:54:47.052 [Thread-540] HikariDataSource - HikariPool-4 - Shutdown initiated...
+[INFO ] 06-08-2020 21:54:47.076 [Thread-540] HikariDataSource - HikariPool-4 - Shutdown completed.
+[INFO ] 06-08-2020 21:54:47.338 [restartedMain] MoneySaverApplication - Starting MoneySaverApplication on DESKTOP-KHJ0OA6 with PID 15424 (C:\Users\Cleiton\eclipse-workspace\ms_customer_profile\target\classes started by Cleiton in C:\Users\Cleiton\eclipse-workspace\ms_customer_profile)
+[INFO ] 06-08-2020 21:54:47.340 [restartedMain] MoneySaverApplication - No active profile set, falling back to default profiles: default
+[INFO ] 06-08-2020 21:54:48.583 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+[INFO ] 06-08-2020 21:54:48.646 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 61ms. Found 1 JPA repository interfaces.
+[INFO ] 06-08-2020 21:54:48.997 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 06-08-2020 21:54:48.999 [restartedMain] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 06-08-2020 21:54:49.001 [restartedMain] StandardService - Starting service [Tomcat]
+[INFO ] 06-08-2020 21:54:49.001 [restartedMain] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.36]
+[INFO ] 06-08-2020 21:54:49.074 [restartedMain] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 06-08-2020 21:54:49.074 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1730 ms
+[INFO ] 06-08-2020 21:54:49.179 [restartedMain] ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 06-08-2020 21:54:49.232 [task-1] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 06-08-2020 21:54:49.273 [task-1] HikariDataSource - HikariPool-5 - Starting...
+[INFO ] 06-08-2020 21:54:49.416 [restartedMain] AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static org.springframework.context.MessageSource com.rumblesoftware.utils.PasswordSecurity.ms
+[WARN ] 06-08-2020 21:54:50.204 [restartedMain] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 06-08-2020 21:54:50.474 [restartedMain] PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[INFO ] 06-08-2020 21:54:50.672 [restartedMain] OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 06-08-2020 21:54:50.842 [restartedMain] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 06-08-2020 21:54:50.849 [restartedMain] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 06-08-2020 21:54:50.850 [restartedMain] DocumentationPluginsBootstrapper - Context refreshed
+[INFO ] 06-08-2020 21:54:50.851 [restartedMain] DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[INFO ] 06-08-2020 21:54:50.864 [restartedMain] ApiListingReferenceScanner - Scanning for api listing references
+[INFO ] 06-08-2020 21:54:50.976 [restartedMain] DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+[INFO ] 06-08-2020 21:54:51.054 [task-1] HikariDataSource - HikariPool-5 - Start completed.
+[INFO ] 06-08-2020 21:54:51.055 [task-1] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 06-08-2020 21:54:51.200 [task-1] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 06-08-2020 21:54:51.201 [task-1] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 06-08-2020 21:54:51.279 [restartedMain] DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+[INFO ] 06-08-2020 21:54:51.287 [restartedMain] MoneySaverApplication - Started MoneySaverApplication in 4.103 seconds (JVM running for 254.454)
+[INFO ] 06-08-2020 21:54:51.292 [restartedMain] ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+[INFO ] 06-08-2020 21:54:56.844 [http-nio-8080-exec-1] [/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 06-08-2020 21:54:56.845 [http-nio-8080-exec-1] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 06-08-2020 21:54:56.852 [http-nio-8080-exec-1] DispatcherServlet - Completed initialization in 7 ms
+[DEBUG] 06-08-2020 21:54:56.882 [http-nio-8080-exec-1] SQL - 
+    select
+        customeren0_.customer_id as customer1_0_0_,
+        customeren0_.creation_date as creation2_0_0_,
+        customeren0_.date_of_birth as date_of_3_0_0_,
+        customeren0_.email as email4_0_0_,
+        customeren0_.external_id as external5_0_0_,
+        customeren0_.external_id_type as external6_0_0_,
+        customeren0_.gender as gender7_0_0_,
+        customeren0_.user_status as user_sta8_0_0_,
+        customeren0_.last_update as last_upd9_0_0_,
+        customeren0_.name as name10_0_0_,
+        customeren0_.password as passwor11_0_0_,
+        customeren0_.responsible_user as respons12_0_0_,
+        customeren0_.salt as salt13_0_0_,
+        customeren0_.surname as surname14_0_0_ 
+    from
+        customer_entity customeren0_ 
+    where
+        customeren0_.customer_id=?
+[DEBUG] 06-08-2020 21:54:57.022 [http-nio-8080-exec-1] SQL - 
+    update
+        customer_entity 
+    set
+        creation_date=?,
+        date_of_birth=?,
+        email=?,
+        external_id=?,
+        external_id_type=?,
+        gender=?,
+        user_status=?,
+        last_update=?,
+        name=?,
+        password=?,
+        responsible_user=?,
+        salt=?,
+        surname=? 
+    where
+        customer_id=?
+[INFO ] 06-08-2020 21:55:33.259 [Thread-719] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 06-08-2020 21:55:33.260 [Thread-719] ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 06-08-2020 21:55:33.262 [Thread-719] HikariDataSource - HikariPool-5 - Shutdown initiated...
+[INFO ] 06-08-2020 21:55:33.282 [Thread-719] HikariDataSource - HikariPool-5 - Shutdown completed.
+[INFO ] 06-08-2020 21:55:33.556 [restartedMain] MoneySaverApplication - Starting MoneySaverApplication on DESKTOP-KHJ0OA6 with PID 15424 (C:\Users\Cleiton\eclipse-workspace\ms_customer_profile\target\classes started by Cleiton in C:\Users\Cleiton\eclipse-workspace\ms_customer_profile)
+[INFO ] 06-08-2020 21:55:33.557 [restartedMain] MoneySaverApplication - No active profile set, falling back to default profiles: default
+[INFO ] 06-08-2020 21:55:34.653 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+[INFO ] 06-08-2020 21:55:34.819 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 166ms. Found 1 JPA repository interfaces.
+[INFO ] 06-08-2020 21:55:35.423 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 06-08-2020 21:55:35.425 [restartedMain] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 06-08-2020 21:55:35.425 [restartedMain] StandardService - Starting service [Tomcat]
+[INFO ] 06-08-2020 21:55:35.426 [restartedMain] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.36]
+[INFO ] 06-08-2020 21:55:35.497 [restartedMain] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 06-08-2020 21:55:35.497 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1932 ms
+[INFO ] 06-08-2020 21:55:35.621 [restartedMain] ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 06-08-2020 21:55:35.678 [task-1] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 06-08-2020 21:55:35.692 [task-1] HikariDataSource - HikariPool-6 - Starting...
+[INFO ] 06-08-2020 21:55:35.694 [restartedMain] AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static org.springframework.context.MessageSource com.rumblesoftware.utils.PasswordSecurity.ms
+[WARN ] 06-08-2020 21:55:35.935 [restartedMain] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 06-08-2020 21:55:36.054 [restartedMain] PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[INFO ] 06-08-2020 21:55:36.196 [restartedMain] OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 06-08-2020 21:55:36.242 [task-1] HikariDataSource - HikariPool-6 - Start completed.
+[INFO ] 06-08-2020 21:55:36.243 [task-1] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 06-08-2020 21:55:36.421 [restartedMain] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 06-08-2020 21:55:36.433 [restartedMain] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 06-08-2020 21:55:36.434 [restartedMain] DocumentationPluginsBootstrapper - Context refreshed
+[INFO ] 06-08-2020 21:55:36.436 [restartedMain] DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[INFO ] 06-08-2020 21:55:36.449 [restartedMain] ApiListingReferenceScanner - Scanning for api listing references
+[INFO ] 06-08-2020 21:55:36.545 [task-1] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 06-08-2020 21:55:36.546 [task-1] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 06-08-2020 21:55:36.590 [restartedMain] DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+[INFO ] 06-08-2020 21:55:36.696 [restartedMain] DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+[INFO ] 06-08-2020 21:55:36.699 [restartedMain] MoneySaverApplication - Started MoneySaverApplication in 3.308 seconds (JVM running for 299.867)
+[INFO ] 06-08-2020 21:55:36.702 [restartedMain] ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+[INFO ] 06-08-2020 21:56:04.683 [Thread-898] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 06-08-2020 21:56:04.686 [Thread-898] ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 06-08-2020 21:56:04.686 [Thread-898] HikariDataSource - HikariPool-6 - Shutdown initiated...
+[INFO ] 06-08-2020 21:56:04.708 [Thread-898] HikariDataSource - HikariPool-6 - Shutdown completed.
+[INFO ] 06-08-2020 21:56:05.009 [restartedMain] MoneySaverApplication - Starting MoneySaverApplication on DESKTOP-KHJ0OA6 with PID 15424 (C:\Users\Cleiton\eclipse-workspace\ms_customer_profile\target\classes started by Cleiton in C:\Users\Cleiton\eclipse-workspace\ms_customer_profile)
+[INFO ] 06-08-2020 21:56:05.014 [restartedMain] MoneySaverApplication - No active profile set, falling back to default profiles: default
+[INFO ] 06-08-2020 21:56:05.590 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+[INFO ] 06-08-2020 21:56:05.614 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 23ms. Found 1 JPA repository interfaces.
+[INFO ] 06-08-2020 21:56:05.794 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 06-08-2020 21:56:05.796 [restartedMain] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 06-08-2020 21:56:05.796 [restartedMain] StandardService - Starting service [Tomcat]
+[INFO ] 06-08-2020 21:56:05.797 [restartedMain] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.36]
+[INFO ] 06-08-2020 21:56:05.834 [restartedMain] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 06-08-2020 21:56:05.834 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 813 ms
+[INFO ] 06-08-2020 21:56:05.905 [restartedMain] ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 06-08-2020 21:56:05.923 [task-1] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 06-08-2020 21:56:05.947 [restartedMain] AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static org.springframework.context.MessageSource com.rumblesoftware.utils.PasswordSecurity.ms
+[INFO ] 06-08-2020 21:56:05.948 [task-1] HikariDataSource - HikariPool-7 - Starting...
+[INFO ] 06-08-2020 21:56:06.245 [task-1] HikariDataSource - HikariPool-7 - Start completed.
+[INFO ] 06-08-2020 21:56:06.246 [task-1] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[WARN ] 06-08-2020 21:56:06.433 [restartedMain] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 06-08-2020 21:56:06.515 [task-1] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 06-08-2020 21:56:06.516 [task-1] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 06-08-2020 21:56:06.563 [task-2] OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 06-08-2020 21:56:06.581 [restartedMain] PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[INFO ] 06-08-2020 21:56:06.908 [restartedMain] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 06-08-2020 21:56:06.917 [restartedMain] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 06-08-2020 21:56:06.918 [restartedMain] DocumentationPluginsBootstrapper - Context refreshed
+[INFO ] 06-08-2020 21:56:06.919 [restartedMain] DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[INFO ] 06-08-2020 21:56:06.933 [restartedMain] ApiListingReferenceScanner - Scanning for api listing references
+[INFO ] 06-08-2020 21:56:07.105 [restartedMain] DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+[INFO ] 06-08-2020 21:56:07.219 [restartedMain] DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+[INFO ] 06-08-2020 21:56:07.222 [restartedMain] MoneySaverApplication - Started MoneySaverApplication in 2.39 seconds (JVM running for 330.389)
+[INFO ] 06-08-2020 21:56:07.226 [restartedMain] ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+[INFO ] 06-08-2020 21:56:10.086 [Thread-1077] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 06-08-2020 21:56:10.087 [Thread-1077] ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 06-08-2020 21:56:10.088 [Thread-1077] HikariDataSource - HikariPool-7 - Shutdown initiated...
+[INFO ] 06-08-2020 21:56:10.111 [Thread-1077] HikariDataSource - HikariPool-7 - Shutdown completed.
+[INFO ] 06-08-2020 21:56:10.259 [restartedMain] MoneySaverApplication - Starting MoneySaverApplication on DESKTOP-KHJ0OA6 with PID 15424 (C:\Users\Cleiton\eclipse-workspace\ms_customer_profile\target\classes started by Cleiton in C:\Users\Cleiton\eclipse-workspace\ms_customer_profile)
+[INFO ] 06-08-2020 21:56:10.261 [restartedMain] MoneySaverApplication - No active profile set, falling back to default profiles: default
+[INFO ] 06-08-2020 21:56:10.811 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+[INFO ] 06-08-2020 21:56:10.841 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 29ms. Found 1 JPA repository interfaces.
+[INFO ] 06-08-2020 21:56:11.022 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 06-08-2020 21:56:11.023 [restartedMain] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 06-08-2020 21:56:11.024 [restartedMain] StandardService - Starting service [Tomcat]
+[INFO ] 06-08-2020 21:56:11.024 [restartedMain] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.36]
+[INFO ] 06-08-2020 21:56:11.061 [restartedMain] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 06-08-2020 21:56:11.061 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 797 ms
+[INFO ] 06-08-2020 21:56:11.110 [restartedMain] ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 06-08-2020 21:56:11.122 [task-1] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 06-08-2020 21:56:11.134 [task-1] HikariDataSource - HikariPool-8 - Starting...
+[INFO ] 06-08-2020 21:56:11.138 [restartedMain] AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static org.springframework.context.MessageSource com.rumblesoftware.utils.PasswordSecurity.ms
+[INFO ] 06-08-2020 21:56:11.174 [task-1] HikariDataSource - HikariPool-8 - Start completed.
+[INFO ] 06-08-2020 21:56:11.174 [task-1] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[WARN ] 06-08-2020 21:56:11.279 [restartedMain] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 06-08-2020 21:56:11.280 [task-1] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 06-08-2020 21:56:11.281 [task-1] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 06-08-2020 21:56:11.334 [task-2] OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 06-08-2020 21:56:11.377 [restartedMain] PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[INFO ] 06-08-2020 21:56:11.614 [restartedMain] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 06-08-2020 21:56:11.621 [restartedMain] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 06-08-2020 21:56:11.623 [restartedMain] DocumentationPluginsBootstrapper - Context refreshed
+[INFO ] 06-08-2020 21:56:11.624 [restartedMain] DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[INFO ] 06-08-2020 21:56:11.634 [restartedMain] ApiListingReferenceScanner - Scanning for api listing references
+[INFO ] 06-08-2020 21:56:11.798 [restartedMain] DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+[INFO ] 06-08-2020 21:56:11.938 [restartedMain] DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+[INFO ] 06-08-2020 21:56:11.941 [restartedMain] MoneySaverApplication - Started MoneySaverApplication in 1.742 seconds (JVM running for 335.108)
+[INFO ] 06-08-2020 21:56:11.944 [restartedMain] ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+[INFO ] 06-08-2020 21:56:16.852 [Thread-1256] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 06-08-2020 21:56:16.853 [Thread-1256] ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 06-08-2020 21:56:16.854 [Thread-1256] HikariDataSource - HikariPool-8 - Shutdown initiated...
+[INFO ] 06-08-2020 21:56:16.882 [Thread-1256] HikariDataSource - HikariPool-8 - Shutdown completed.
+[INFO ] 06-08-2020 21:56:17.045 [restartedMain] MoneySaverApplication - Starting MoneySaverApplication on DESKTOP-KHJ0OA6 with PID 15424 (C:\Users\Cleiton\eclipse-workspace\ms_customer_profile\target\classes started by Cleiton in C:\Users\Cleiton\eclipse-workspace\ms_customer_profile)
+[INFO ] 06-08-2020 21:56:17.046 [restartedMain] MoneySaverApplication - No active profile set, falling back to default profiles: default
