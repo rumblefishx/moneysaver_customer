@@ -7,8 +7,6 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 
-import com.rumblesoftware.io.validation.ValidDate;
-import com.rumblesoftware.io.validation.ValidGender;
 import com.rumblesoftware.io.validation.ValidPassword;
 
 @Valid
@@ -24,12 +22,6 @@ public class CustomerInputDTO {
 	@NotNull(message="{customer.input.surname.notnull}")
 	private String surname;
 	
-	@NotBlank(message = "{customer.input.gender.notblank}")
-	@Length(max = 60,message="{customer.input.gender.maxlength}")
-	@NotNull(message="{customer.input.gender.notnull}")
-	@ValidGender(message="{customer.input.gender.invalid}")
-	private String gender;
-	
 	@NotBlank(message = "{customer.input.email.notblank}")
 	@Email(message = "{customer.input.email.invalid}")
 	@NotNull(message="{customer.input.email.notnull}")
@@ -40,11 +32,7 @@ public class CustomerInputDTO {
 	@NotNull(message="{customer.input.password.notnull}")
 	@ValidPassword(message = "{customer.input.password.invalid}")
 	private String password;
-	
-	@NotBlank(message = "{customer.input.dateofbirth.notblank}")
-	@NotNull(message = "{customer.input.dateofbirth.notnull}")
-	@ValidDate(message="{customer.input.dateofbirth.invalid}")
-	private String dateOfBirth;
+
 
 	public String getName() {
 		return name;
@@ -76,22 +64,6 @@ public class CustomerInputDTO {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public String getDateOfBirth() {
-		return dateOfBirth;
-	}
-
-	public void setDateOfBirth(String dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
-	}
-
-	public String getGender() {
-		return gender;
-	}
-
-	public void setGender(String gender) {
-		this.gender = gender;
 	}
 	
 }

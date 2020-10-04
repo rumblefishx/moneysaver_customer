@@ -11,6 +11,9 @@ public enum Gender {
 	private String gender;
 	
 	public static Gender castStringToEnum(String genderStr) {
+		if(genderStr == null)
+			return null;
+		
 		if(genderStr.trim().equalsIgnoreCase("m"))
 			return M;
 		

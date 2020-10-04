@@ -9,4 +9,9 @@ public class CustomerResponseFactory {
 		response.addError(message);
 		return response;
 	}
+	
+	public static CustomerResponseDto getCustomerResponse() {
+		CustomerResponseDto response = new CustomerResponseDto();
+		return response;
+	}
 }

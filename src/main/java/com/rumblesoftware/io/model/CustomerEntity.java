@@ -13,10 +13,9 @@ import javax.persistence.Id;
 import javax.persistence.PrePersist;
 import javax.validation.constraints.NotNull;
 
-import com.rumblesoftware.enums.ExternalIdType;
-import com.rumblesoftware.io.enums.Gender;
+import com.rumblesoftware.enums.ExternalTokenType;
 
-@Entity
+@Entity(name = "TCustomer")
 public class CustomerEntity implements Serializable {
 
 	/**
@@ -32,7 +31,7 @@ public class CustomerEntity implements Serializable {
 	
 	@Column(name="external_id_type",length = 25)
 	@Enumerated(EnumType.STRING)
-	private ExternalIdType externalIdType;
+	private ExternalTokenType externalIdType;
 	
 	@Column(name="external_id",length = 255)
 	private String externalId;
@@ -44,14 +43,6 @@ public class CustomerEntity implements Serializable {
 	@Column(name="surname",length = 60)
 	@NotNull
 	private String surname;
-	
-	@Column(name="date_of_birth")
-	private Date dateOfBirth;
-	
-	@Enumerated(EnumType.STRING)
-	@Column(name="gender",length = 1)
-	@NotNull
-	private Gender gender;
 
 	@Column(name="email",length = 100)
 	@NotNull
@@ -101,22 +92,6 @@ public class CustomerEntity implements Serializable {
 
 	public void setSurname(String surname) {
 		this.surname = surname;
-	}
-
-	public Date getDateOfBirth() {
-		return dateOfBirth;
-	}
-
-	public void setDateOfBirth(Date dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
-	}
-
-	public Gender getGender() {
-		return gender;
-	}
-
-	public void setGender(Gender gender) {
-		this.gender = gender;
 	}
 
 	public String getEmail() {
@@ -188,13 +163,33 @@ public class CustomerEntity implements Serializable {
 		this.salt = salt;
 	}
 
+
+
 	@Override
 	public String toString() {
-		return "CustomerEntity [customerId=" + customerId + ", name=" + name + ", surname=" + surname + ", dateOfBirth="
-				+ dateOfBirth + ", gender=" + gender + ", email=" + email + ", password=" + password + ", salt=" + salt
-				+ ", isActive=" + isActive + ", creationDate=" + creationDate + ", lastUpdate=" + lastUpdate
-				+ ", responsibleUser=" + responsibleUser + "]";
+		return "CustomerEntity [customerId=" + customerId + ", externalIdType=" + externalIdType + ", externalId="
+				+ externalId + ", name=" + name + ", surname=" + surname + ", email=" + email + ", password=" + password
+				+ ", salt=" + salt + ", isActive=" + isActive + ", creationDate=" + creationDate + ", lastUpdate="
+				+ lastUpdate + ", responsibleUser=" + responsibleUser + "]";
 	}
+
+	public ExternalTokenType getExternalIdType() {
+		return externalIdType;
+	}
+
+	public void setExternalIdType(ExternalTokenType externalIdType) {
+		this.externalIdType = externalIdType;
+	}
+
+	public String getExternalId() {
+		return externalId;
+	}
+
+	public void setExternalId(String externalId) {
+		this.externalId = externalId;
+	}
+	
+	
 
 
 	

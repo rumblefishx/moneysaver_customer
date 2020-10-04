@@ -17,9 +17,12 @@ public class ValidDateValidator implements ConstraintValidator<ValidDate, String
 	@Override
 	public boolean isValid(String value, ConstraintValidatorContext context) {
 		
-		if(value.trim().matches(VALID_DATE_REGEX))
-			return true;
-		return false;
+		if(value != null) {
+			if(value.trim().matches(VALID_DATE_REGEX) == false)
+				return false;
+			}
+		
+		return true;
 	}
 
 }

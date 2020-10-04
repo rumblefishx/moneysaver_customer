@@ -10,6 +10,7 @@ public class CustomerResponseDto {
 	
 	public CustomerResponseDto() {
 		errors = new ArrayList<String>();
+		responseBody = new CustomerOutputDTO();
 	}
 	
 	public List<String> getErrors() {

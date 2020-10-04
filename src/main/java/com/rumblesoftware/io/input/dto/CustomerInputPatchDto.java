@@ -1,6 +1,8 @@
 package com.rumblesoftware.io.input.dto;
 
+import javax.validation.Valid;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 
@@ -8,9 +10,10 @@ import com.rumblesoftware.io.validation.ValidDate;
 import com.rumblesoftware.io.validation.ValidGender;
 import com.rumblesoftware.io.validation.ValidPassword;
 
+@Valid
 public class CustomerInputPatchDto {
 	
-	@Length
+	@NotNull(message="{customer.input.id.notnull}")
 	private Long customerId;
 
 	@Length(max = 25,message="{customer.input.name.maxlength}")
@@ -19,7 +22,7 @@ public class CustomerInputPatchDto {
 	@Length(max = 60,message="{customer.input.surname.maxlength}")
 	private String surname;
 	
-	@Length(max = 60,message="{customer.input.gender.maxlength}")
+	@Length(max = 1,message="{customer.input.gender.maxlength}")
 	@ValidGender(message="{customer.input.gender.invalid}")
 	private String gender;
 	

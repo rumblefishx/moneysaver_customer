@@ -2,44 +2,60 @@ package com.rumblesoftware.io.input.dto;
 
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.rumblesoftware.io.enums.Gender;
 import com.rumblesoftware.io.model.CustomerEntity;
 import com.rumblesoftware.io.output.dto.CustomerOutputDTO;
-import com.rumblesoftware.utils.DateUtils;
 import com.rumblesoftware.utils.PasswordSecurity;
 
 @Component
 public class CustomerIOConverter {
-
-	@Autowired
-	private DateUtils dateUtils;
 	
 	@Autowired
 	private PasswordSecurity passwordSecurity;
 	
+	private Logger log = LoggerFactory.getLogger(CustomerIOConverter.class);
+	
 	public CustomerOutputDTO convertInputToOutput(CustomerInputDTO input) {
+		
+		log.info("Casting CustomerInputDTO to CustomerOutputDTO...");
 		
 		CustomerOutputDTO output = new CustomerOutputDTO();
 		output.setCustomerActive(true);
 		output.setCustomerId(1100L);
-		output.setGender(Gender.castStringToEnum(input.getGender()));
-		output.setDateOfBirth(input.getDateOfBirth());
 		output.setEmail(input.getEmail());
 		output.setName(input.getName());
 		output.setSurname(input.getSurname());
 		return output;
 	}
 	
+	public CustomerOutputDTO convertInputPatchToOutput(CustomerInputPatchDto patchDto) {
+		
+		log.info("Casting CustomerInputPatchDto to CustomerOutputDTO...");
+		
+		CustomerOutputDTO output = new CustomerOutputDTO();
+		output.setCustomerActive(false);
+		output.setCustomerId(patchDto.getCustomerId());
+		output.setGender(Gender.castStringToEnum(patchDto.getGender()));
+		output.setDateOfBirth(patchDto.getDateOfBirth());
+		output.setEmail(patchDto.getEmail());
+		output.setName(patchDto.getName());
+		output.setSurname(patchDto.getSurname());
+		return output;
+	}
+	
 	public CustomerEntity convertInputToEntity(CustomerInputDTO input) {
+		
+		log.info("Casting CustomerInputDTO to CustomerEntity...");
+		
 		CustomerEntity entity = new CustomerEntity();
 		
 		entity.setActive(true);
-		entity.setDateOfBirth(dateUtils.castStringToDate(input.getDateOfBirth()));
 		entity.setEmail(input.getEmail());
-		entity.setGender(Gender.castStringToEnum(input.getGender()));
 		entity.setName(input.getName());
 			
 		String salt = PasswordSecurity.generateRandomSalt();
@@ -57,11 +73,12 @@ public class CustomerIOConverter {
 	}
 	
 	public CustomerOutputDTO convertEntityToOutput(CustomerEntity entity) {
+		
+		log.info("Casting CustomerEntity to CustomerOutputDTO...");
+		
 		CustomerOutputDTO output = new CustomerOutputDTO();
 		output.setCustomerActive(entity.isActive());
 		output.setCustomerId(entity.getCustomerId());
-		output.setGender(entity.getGender());
-		output.setDateOfBirth(dateUtils.castDateToString(entity.getDateOfBirth()));
 		output.setEmail(entity.getEmail());
 		output.setName(entity.getName());
 		output.setSurname(entity.getSurname());
@@ -70,20 +87,14 @@ public class CustomerIOConverter {
 	}
 	
 	public CustomerEntity transferPatchToEntity(CustomerInputPatchDto patch,CustomerEntity entity) {
-		
-		//TODO: VERIFY IF PATCH IS NULL AND THROW AN EXCEPTION
+	
+		log.info("Transfering updated customer details to entity...");
 		
 		if(patch.getName() != null)
 		entity.setName(patch.getName());
 		
 		if(patch.getSurname() != null)
 		entity.setSurname(patch.getSurname());
-		
-		if(patch.getGender() != null)
-		entity.setGender(Gender.castStringToEnum(patch.getGender()));
-		
-		if(patch.getDateOfBirth() != null)
-		entity.setDateOfBirth(dateUtils.castStringToDate(patch.getDateOfBirth()));
 		
 		if(patch.getEmail() != null)
 		entity.setEmail(patch.getEmail());
@@ -104,15 +115,57 @@ public class CustomerIOConverter {
 	}
 	
 	public CustomerOutputDTO convertPatchToOutput(CustomerInputPatchDto patch) {
+		
+		log.info("Casting CustomerInputPatchDto to CustomerOutputDTO...");
+		
 		CustomerOutputDTO output = new CustomerOutputDTO();
 		
-		output.setCustomerId(patch.getCustomerId());
-		output.setDateOfBirth(patch.getDateOfBirth());
-		output.setEmail(patch.getEmail());
-		output.setGender(Gender.castStringToEnum(patch.getGender()));
-		output.setName(patch.getName());
-		output.setSurname(patch.getSurname());
+		if(patch.getCustomerId() != null)
+			output.setCustomerId(patch.getCustomerId());
+		
+		if(patch.getDateOfBirth() != null)
+			output.setDateOfBirth(patch.getDateOfBirth());
+		
+		if(patch.getEmail() != null)
+			output.setEmail(patch.getEmail());
+		
+		if(patch.getGender() != null)
+			output.setGender(Gender.castStringToEnum(patch.getGender()));
+		
+		if(patch.getName() != null)
+			output.setName(patch.getName());
+		
+		if(patch.getSurname() != null)
+			output.setSurname(patch.getSurname());
 		
 		return output;
 	}
+	
+	public CustomerEntity castLoginDetailsToEntity(LoginDetailsDto loginDetails) {
+		
+		log.info("Casting LoginDetailsDto to CustomerEntity...");
+		
+		CustomerEntity ce = new CustomerEntity();
+		
+		if(loginDetails.getDateOfBirth() != null)
+		ce.setEmail(loginDetails.getEmail());
+		ce.setName(loginDetails.getName());
+		ce.setSurname(loginDetails.getSurname());
+		
+		if(loginDetails.getExternalId() != null) {
+			String salt = PasswordSecurity.generateRandomSalt();
+			
+			Optional<String> securedId = passwordSecurity.hashPassword(loginDetails.getExternalId(), salt);
+			
+			if(securedId.isPresent()) {
+				ce.setExternalId(securedId.get());
+				ce.setSalt(salt);
+			}
+		}
+		
+		ce.setExternalIdType(loginDetails.getExternalIdType());
+		
+		
+		return ce;
+	} 
 }

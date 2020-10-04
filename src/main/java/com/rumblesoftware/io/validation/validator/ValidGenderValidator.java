@@ -9,11 +9,14 @@ public class ValidGenderValidator implements ConstraintValidator<ValidGender, St
 
 	@Override
 	public boolean isValid(String value, ConstraintValidatorContext context) {
-		
-		if(value.trim().equalsIgnoreCase("m") || value.trim().equalsIgnoreCase("f"))
-			return true;
-		
-		return false;
+
+		if (value != null) {
+			if (value.trim().equalsIgnoreCase("m") == false 
+					&& value.trim().equalsIgnoreCase("f") == false)
+				return false;
+		}
+
+		return true;
 	}
 
 }

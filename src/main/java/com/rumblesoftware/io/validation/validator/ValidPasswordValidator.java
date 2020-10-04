@@ -17,10 +17,10 @@ public class ValidPasswordValidator implements ConstraintValidator<ValidPassword
 	
 	@Override
 	public boolean isValid(String value, ConstraintValidatorContext context) {
-		
-		if(!value.matches(VALID_PATTERN))
-			return false;
-		
+		if(value != null && value.trim().length() > 0 ) {
+			if(!value.matches(VALID_PATTERN))
+				return false;
+		}
 		return true;
 	}
 
