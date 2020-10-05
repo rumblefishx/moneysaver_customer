@@ -85,8 +85,7 @@ public class HandlerController {
 		
 		for(ConstraintViolation<?> val : ex.getConstraintViolations()) {
 			String invalidValue = val.getInvalidValue() == null ? "é null" : String.valueOf(val.getInvalidValue());
-				response.addError(String.format(po.getMessage(val.getMessage()),invalidValue));
-
+			response.addError(String.format(po.getMessage(val.getMessage()), invalidValue));
 		}
 		
 		return new ResponseEntity<CustomerResponseDto>(response,HttpStatus.BAD_REQUEST);	

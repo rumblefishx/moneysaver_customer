@@ -12,25 +12,25 @@ import com.rumblesoftware.io.validation.ValidPassword;
 @Valid
 public class CustomerInputDTO {
 	
-	@NotBlank(message = "{customer.input.name.notblank}")
-	@Length(max = 25,message="{customer.input.name.maxlength}")
-	@NotNull(message="{customer.input.name.notnull}")
+	@NotBlank(message = "customer.input.name.notblank")
+	@Length(max = 25,message="customer.input.name.maxlength")
+	@NotNull(message="customer.input.name.notnull")
 	private String name;
 	
-	@NotBlank(message = "{customer.input.surname.notblank}")
-	@Length(max = 60,message="{customer.input.surname.maxlength}")
-	@NotNull(message="{customer.input.surname.notnull}")
+	@NotBlank(message = "customer.input.surname.notblank")
+	@Length(max = 60,message="customer.input.surname.maxlength")
+	@NotNull(message="customer.input.surname.notnull")
 	private String surname;
 	
-	@NotBlank(message = "{customer.input.email.notblank}")
-	@Email(message = "{customer.input.email.invalid}")
-	@NotNull(message="{customer.input.email.notnull}")
+	@NotBlank(message = "customer.input.email.notblank")
+	@Email(message = "customer.input.email.invalid")
+	@NotNull(message="customer.input.email.notnull")
 	private String email;
 	
-	@NotBlank(message = "{customer.input.password.notblank}")
-	@Length(max = 12,message="{customer.input.password.maxlength}")
-	@NotNull(message="{customer.input.password.notnull}")
-	@ValidPassword(message = "{customer.input.password.invalid}")
+	@NotBlank(message = "customer.input.password.notblank")
+	@Length(max = 12,message="customer.input.password.maxlength")
+	@NotNull(message="customer.input.password.notnull")
+	@ValidPassword(message = "customer.input.password.invalid")
 	private String password;
 
 

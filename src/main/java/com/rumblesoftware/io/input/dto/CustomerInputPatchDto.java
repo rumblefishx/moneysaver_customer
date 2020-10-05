@@ -13,27 +13,27 @@ import com.rumblesoftware.io.validation.ValidPassword;
 @Valid
 public class CustomerInputPatchDto {
 	
-	@NotNull(message="{customer.input.id.notnull}")
+	@NotNull(message="customer.input.id.notnull")
 	private Long customerId;
 
-	@Length(max = 25,message="{customer.input.name.maxlength}")
+	@Length(max = 25,message="customer.input.name.maxlength")
 	private String name;
 	
-	@Length(max = 60,message="{customer.input.surname.maxlength}")
+	@Length(max = 60,message="customer.input.surname.maxlength")
 	private String surname;
 	
-	@Length(max = 1,message="{customer.input.gender.maxlength}")
-	@ValidGender(message="{customer.input.gender.invalid}")
+	@Length(max = 1,message="customer.input.gender.maxlength")
+	@ValidGender(message="customer.input.gender.invalid")
 	private String gender;
 	
-	@Email(message = "{customer.input.email.invalid}")
+	@Email(message = "customer.input.email.invalid")
 	private String email;
 	
-	@Length(max = 12,message="{customer.input.password.maxlength}")
-	@ValidPassword(message = "{customer.input.password.invalid}")
+	@Length(max = 12,message="customer.input.password.maxlength")
+	@ValidPassword(message = "customer.input.password.invalid")
 	private String password;
 	
-	@ValidDate(message="{customer.input.dateofbirth.invalid}")
+	@ValidDate(message="customer.input.dateofbirth.invalid")
 	private String dateOfBirth;
 
 	public String getName() {
