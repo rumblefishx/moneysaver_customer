@@ -11,6 +11,7 @@ import com.rumblesoftware.business.CustomerOperations;
 import com.rumblesoftware.business.ExternalTokenValMediator;
 import com.rumblesoftware.exception.CustomerIdNotFoundException;
 import com.rumblesoftware.exception.CustomerNotFoundException;
+import com.rumblesoftware.exception.EmailAlreadyRegisteredException;
 import com.rumblesoftware.exception.InvalidPasswordException;
 import com.rumblesoftware.io.input.dto.CustomerIOConverter;
 import com.rumblesoftware.io.input.dto.CustomerInputDTO;
@@ -21,26 +22,61 @@ import com.rumblesoftware.io.model.CustomerEntity;
 import com.rumblesoftware.io.output.dto.CustomerOutputDTO;
 import com.rumblesoftware.io.repository.CustomerRepository;
 import com.rumblesoftware.utils.PasswordSecurity;
+import com.rumblesoftware.utils.PostOfficer;
 
+/**
+ * Business class with the main operations methods
+ * Class responsible for create, update and authenticate users
+ * @author Cleiton
+ *
+ */
 @Service
 public class CustomerOperationsImpl implements CustomerOperations{
 
+	private static final String DUPLICATED_EMAIL_MESSAGE = "customer.email.duplicated.message";
+	
+	/**
+	 * CustomerIOConverter injection 
+	 */
 	@Autowired
 	private CustomerIOConverter converter;
 
+	/**
+	 * CustomerRepository injection
+	 */
 	@Autowired
 	private CustomerRepository repository;
 	
+	/**
+	 * PasswordSecurity injection 
+	 */
 	@Autowired
 	private PasswordSecurity passwordSecurity;
 	
+	/**
+	 * Get Logger instance in order to log error ocurrences
+	 */
 	private Logger log = LoggerFactory.getLogger(CustomerOperationsImpl.class);
 	
+	/**
+	 * Inject an instance of ExternalTokenValMediator
+	 */
 	@Autowired
 	private ExternalTokenValMediator mediator;
 	
+	/**
+	 * Inject an instance of PostOfficer
+	 */
+	@Autowired
+	private PostOfficer po;
+	
+	/**
+	 * Method responsible for create a new user
+	 */
 	@Override
 	public CustomerOutputDTO createCustomer(CustomerInputDTO customer) {
+		
+		checkEmailRegister(customer.getEmail());
 		
 		CustomerEntity entity = converter.convertInputToEntity(customer);
 		
@@ -51,6 +87,9 @@ public class CustomerOperationsImpl implements CustomerOperations{
 	}
 
 
+	/**
+	 * method responsible for update a customer
+	 */
 	@Override
 	public CustomerOutputDTO updateCustomer(CustomerInputPatchDto patch) {
 		
@@ -73,7 +112,9 @@ public class CustomerOperationsImpl implements CustomerOperations{
 		return output;
 	}
 
-
+	/**
+	 * Method responsible for find an user based in an email and a password
+	 */
 	@Override
 	public CustomerOutputDTO findUserByPasswdAndCredential(String email, String passwd) {
 		CustomerOutputDTO output = null;
@@ -92,6 +133,9 @@ public class CustomerOperationsImpl implements CustomerOperations{
 	}
 
 
+	/**
+	 * A method responsible for find an user based in an external token
+	 */
 	@Override
 	public CustomerOutputDTO findUserByExternalTokenId(ExternalTokenDataDto tokenData) {
 		LoginDetailsDto loginDetails = mediator.mediate(tokenData);
@@ -109,6 +153,12 @@ public class CustomerOperationsImpl implements CustomerOperations{
 		return converter.convertEntityToOutput(entity);
 	}
 
+	/**
+	 * Method responsible for authenticate users based in internal user's details
+	 * @param entity : input parameter with local user details
+	 * @param requestUserPassword : input parameter with user's password
+	 * @return
+	 */
 	public CustomerOutputDTO authenticate(CustomerEntity entity, String requestUserPassword) {
 		CustomerOutputDTO output = null;
 		
@@ -124,6 +174,23 @@ public class CustomerOperationsImpl implements CustomerOperations{
 		}
 
 		return output;
+	}
+	
+	/**
+	 * Method responsible for check email validity
+	 * Is it a valid email ?
+	 * Is it a duplicated email ?
+	 * @param email : input parameter filled with user email
+	 */
+	private void checkEmailRegister(String email) {	
+		
+		if(email != null && !email.isBlank()) {
+			Optional<CustomerEntity> entity = Optional.ofNullable(repository.findCustomerByEmail(email));
+		
+			if(entity.isPresent())
+				throw new EmailAlreadyRegisteredException(po.getMessage(DUPLICATED_EMAIL_MESSAGE));
+		}
+		
 	}
 
 }

@@ -6,9 +6,9 @@
 	<artifactId>ms_customer_profile</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
-<properties>
-    <maven.compiler.release>13</maven.compiler.release>
-</properties>
+	<properties>
+		<maven.compiler.release>13</maven.compiler.release>
+	</properties>
 
 	<dependencies>
 		<dependency>
@@ -100,6 +100,14 @@
 			<version>1.4.200</version>
 			<scope>test</scope>
 		</dependency>
+
+<dependency>
+    <groupId>org.flywaydb</groupId>
+    <artifactId>flyway-core</artifactId>
+    <version>5.2.4</version>
+</dependency>
+
+
 
 	</dependencies>
 

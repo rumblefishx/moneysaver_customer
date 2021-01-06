@@ -28,23 +28,47 @@ import com.rumblesoftware.io.input.dto.ExternalTokenDataDto;
 import com.rumblesoftware.io.output.dto.CustomerResponseDto;
 import com.rumblesoftware.io.validation.ValidExternalIdType;
 
+/**
+ * Controller responsible to deal with the application requests
+ * @author Cleiton
+ *
+ */
 @RestController(value = "/moneysaver")
 @Validated
 public class MoneySaverController {
 
+	/**
+	 * Inject a CustomerOperations instance
+	 */
 	@Autowired
 	private CustomerOperations customerOperations;
 	
+	/**
+	 * Inject a CustomerIOConverter instance
+	 */
 	@Autowired
 	private CustomerIOConverter customerConverter;
 	
+	
+	/**
+	 * Inject a MessageSource instance
+	 */
 	@Autowired
 	private MessageSource ms;
 	
 	private static final String CUSTOMER_ID_NOT_NULL = "customer.input.id.notnull";
 	
+	/**
+	 * Get a Logger instance to log error ocurrences
+	 */
 	private Logger log = LoggerFactory.getLogger(MoneySaverController.class);
 	
+	/**
+	 * Method responsible for receive "create new user" requests and persist new user in the database
+	 * @param customer : input parameter with the customer details
+	 * @param bindingResult : parameter responsible for hold validation messages
+	 * @return ResponseEntity<CustomerResponseDto> instance filled with created user details
+	 */
 	@PostMapping("/customer")
 	public ResponseEntity<CustomerResponseDto> createNewCustomer(@Valid @RequestBody CustomerInputDTO customer,BindingResult bindingResult) {
 		
@@ -71,6 +95,12 @@ public class MoneySaverController {
 		return ResponseEntity.ok(response);
 	}
 
+	/**
+	 * Method responsible for receive "update user" requests and update an user in the database
+	 * @param customer : input parameters with new customer details
+	 * @param br : parameter responsible for hold validation messages
+	 * @return ResponseEntity<CustomerResponseDto> instance filled with created user details
+	 */
 	@PatchMapping("/customer")
 	public ResponseEntity<CustomerResponseDto> updateCustomer(@Valid @RequestBody CustomerInputPatchDto customer,BindingResult br){
 		CustomerResponseDto response = new CustomerResponseDto();
@@ -100,7 +130,12 @@ public class MoneySaverController {
 	}
 	
 	
-	//TODO: SEPARAR EM DOIS ENDPOINTS DIFERENTES DE LOGIN
+	/**
+	 * Method responsible for receive an internal login request and authenticate the user
+	 * @param email : input parameter filled with user's email
+	 * @param password : input parameter filled with user's password
+	 * @return ResponseEntity<CustomerResponseDto> instance filled with created user details
+	 */
 	@GetMapping("/customer/internal_login")
 	public ResponseEntity<CustomerResponseDto> customerLoginByEmailAndPassword
 			(@Valid @Email @RequestParam("email") String email,
@@ -116,6 +151,12 @@ public class MoneySaverController {
 		return ResponseEntity.ok(response);
 	}
 	
+	/**
+	 * Method responsible for receive an external login request and authenticate the user
+	 * @param externalToken : input parameter with external token details
+	 * @param tokenType : input parameter which describes the external token type
+	 * @return ResponseEntity<CustomerResponseDto> instance filled with created user details
+	 */
 	@GetMapping("/customer/external_login")
 	public ResponseEntity<CustomerResponseDto> customerLoginByExternalEntity
 			(@RequestParam("externalToken") String externalToken,

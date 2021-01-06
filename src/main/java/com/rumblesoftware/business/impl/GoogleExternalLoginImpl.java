@@ -21,15 +21,29 @@ import com.rumblesoftware.io.builders.LoginDetailsBuilder;
 import com.rumblesoftware.io.input.dto.ExternalTokenDataDto;
 import com.rumblesoftware.io.input.dto.LoginDetailsDto;
 
+/**
+ * Class responsible for authenticate an user based in his google account details
+ * @author Cleiton
+ *
+ */
 @PropertySource("classpath:application.properties")
 @Component
 public class GoogleExternalLoginImpl implements ExternalTokenValidator {
 
+	/**
+	 * Client ID from the APP
+	 */
 	@Value(value = "${moneysaver.google.api.id}")
 	public String clientID;
 	
+	/**
+	 * Get an instance of logger in order to log error messages
+	 */
 	private Logger log = LoggerFactory.getLogger(GoogleExternalLoginImpl.class);
 
+	/**
+	 * Method responsible for verify token validity
+	 */
 	@Override
 	public LoginDetailsDto verifyTokenValidity(ExternalTokenDataDto token) {		
 		LoginDetailsDto loginDetails = new LoginDetailsDto();

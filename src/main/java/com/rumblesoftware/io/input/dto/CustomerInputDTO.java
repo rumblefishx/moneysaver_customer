@@ -1,12 +1,12 @@
 package com.rumblesoftware.io.input.dto;
 
 import javax.validation.Valid;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 
+import com.rumblesoftware.io.validation.EmailChecker;
 import com.rumblesoftware.io.validation.ValidPassword;
 
 @Valid
@@ -23,7 +23,7 @@ public class CustomerInputDTO {
 	private String surname;
 	
 	@NotBlank(message = "customer.input.email.notblank")
-	@Email(message = "customer.input.email.invalid")
+	@EmailChecker(message="customer.input.email.invalid")
 	@NotNull(message="customer.input.email.notnull")
 	private String email;
 	
