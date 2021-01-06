@@ -2,6 +2,11 @@ package com.rumblesoftware.io.input.dto;
 
 import com.rumblesoftware.enums.ExternalTokenType;
 
+/**
+ * Class responsible for hold login details
+ * @author Cleiton
+ *
+ */
 public class LoginDetailsDto {
 
 	private String externalId;

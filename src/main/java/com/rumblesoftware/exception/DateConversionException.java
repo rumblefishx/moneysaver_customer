@@ -1,5 +1,10 @@
 package com.rumblesoftware.exception;
 
+/**
+ * Exception thrown when a date conversion goes wrong
+ * @author Cleiton
+ *
+ */
 public class DateConversionException extends RuntimeException {
 	
 	

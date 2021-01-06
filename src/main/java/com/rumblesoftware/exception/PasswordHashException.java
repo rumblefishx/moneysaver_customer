@@ -1,5 +1,10 @@
 package com.rumblesoftware.exception;
 
+/**
+ * Exception thrown when an error occurs during a password hash generation
+ * @author Cleiton
+ *
+ */
 public class PasswordHashException extends RuntimeException {
 
 	/**

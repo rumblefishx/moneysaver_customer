@@ -12,14 +12,30 @@ import com.rumblesoftware.io.model.CustomerEntity;
 import com.rumblesoftware.io.output.dto.CustomerOutputDTO;
 import com.rumblesoftware.utils.PasswordSecurity;
 
+/**
+ * Class responsible for DTO conversions
+ * @author Cleiton
+ *
+ */
 @Component
 public class CustomerIOConverter {
 	
+	/**
+	 * Inject a PasswordSecurity instance
+	 */
 	@Autowired
 	private PasswordSecurity passwordSecurity;
 	
+	/**
+	 * Get a instance from Logger 
+	 */
 	private Logger log = LoggerFactory.getLogger(CustomerIOConverter.class);
 	
+	/**
+	 * Convert a CustomerInputDTO into a  CustomerOutputDTO
+	 * @param input : input parameter with a CustomerInputDTO
+	 * @return an instance of a CustomerOutputDTO
+	 */
 	public CustomerOutputDTO convertInputToOutput(CustomerInputDTO input) {
 		
 		log.info("Casting CustomerInputDTO to CustomerOutputDTO...");
@@ -33,6 +49,11 @@ public class CustomerIOConverter {
 		return output;
 	}
 	
+	/**
+	 * Convert a CustomerInputPatchDto into a  CustomerOutputDTO
+	 * @param patchDto : input parameter with a CustomerInputPatchDto
+	 * @return an instance of a CustomerOutputDTO
+	 */
 	public CustomerOutputDTO convertInputPatchToOutput(CustomerInputPatchDto patchDto) {
 		
 		log.info("Casting CustomerInputPatchDto to CustomerOutputDTO...");
@@ -48,6 +69,11 @@ public class CustomerIOConverter {
 		return output;
 	}
 	
+	/**
+	 * Convert a CustomerInputDTO into a  CustomerEntity
+	 * @param input : input parameter with a CustomerInputDTO
+	 * @return an instance of a CustomerOutputDTO
+	 */
 	public CustomerEntity convertInputToEntity(CustomerInputDTO input) {
 		
 		log.info("Casting CustomerInputDTO to CustomerEntity...");
@@ -72,6 +98,11 @@ public class CustomerIOConverter {
 		return entity;
 	}
 	
+	/**
+	 * Convert a CustomerEntity into a  CustomerOutputDTO
+	 * @param entity : input parameter with a CustomerEntity
+	 * @return an instance of a CustomerOutputDTO
+	 */
 	public CustomerOutputDTO convertEntityToOutput(CustomerEntity entity) {
 		
 		log.info("Casting CustomerEntity to CustomerOutputDTO...");
@@ -86,6 +117,13 @@ public class CustomerIOConverter {
 		return output;
 	}
 	
+	
+	/**
+	 * Transfer data from a CustomerInputPatchDTO instance to a CustomerEntity instance
+	 * @param patch : input parameter filled with a CustomerInputPatchDto
+	 * @param entity : input parameter filled with a CustomerEntity
+	 * @return CustomerEntity instance 
+	 */
 	public CustomerEntity transferPatchToEntity(CustomerInputPatchDto patch,CustomerEntity entity) {
 	
 		log.info("Transfering updated customer details to entity...");
@@ -114,6 +152,11 @@ public class CustomerIOConverter {
 		return entity;
 	}
 	
+	/**
+	 * Convert a CustomerInputPatchDto into a  CustomerOutputDTO
+	 * @param patch : input parameter with a CustomerInputPatchDto
+	 * @return an instance of a CustomerOutputDTO
+	 */
 	public CustomerOutputDTO convertPatchToOutput(CustomerInputPatchDto patch) {
 		
 		log.info("Casting CustomerInputPatchDto to CustomerOutputDTO...");
@@ -141,6 +184,11 @@ public class CustomerIOConverter {
 		return output;
 	}
 	
+	/**
+	 * Convert a LoginDetailsDto into a  CustomerEntity
+	 * @param loginDetails : input parameter with a LoginDetailsDto instance
+	 * @return an instance of a CustomerEntity
+	 */
 	public CustomerEntity castLoginDetailsToEntity(LoginDetailsDto loginDetails) {
 		
 		log.info("Casting LoginDetailsDto to CustomerEntity...");

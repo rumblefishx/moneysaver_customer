@@ -1,5 +1,10 @@
 package com.rumblesoftware.exception;
 
+/**
+ * Exception thrown when a Customer isn't found during a search
+ * @author Cleiton
+ *
+ */
 public class CustomerNotFoundException extends RuntimeException {
 
 	/**

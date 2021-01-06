@@ -1,5 +1,12 @@
 package com.rumblesoftware.io.enums;
 
+/**
+ * Enum responsible for identify user gender's
+ * M : Male
+ * F : Female
+ * @author Cleiton
+ *
+ */
 public enum Gender {
 	M("M"),
 	F("F");

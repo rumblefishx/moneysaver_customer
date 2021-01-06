@@ -1,5 +1,10 @@
 package com.rumblesoftware.enums;
 
+/**
+ * Enum responsible for identify external authentication token
+ * @author Cleiton
+ *
+ */
 public enum ExternalTokenType {
 	FaceBook(1,"FaceBook"),
 	Google(0,"Google");	
