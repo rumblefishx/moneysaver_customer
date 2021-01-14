@@ -98,4 +98,5 @@ public class MoneySaverApplication implements CommandLineRunner {
 	public static void main(String[] args) {
 		SpringApplication.run(MoneySaverApplication.class, args);
 	}
+
 }
