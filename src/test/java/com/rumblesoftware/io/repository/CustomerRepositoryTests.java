@@ -1,8 +1,8 @@
 package com.rumblesoftware.io.repository;
 
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.junit.Test;
@@ -44,7 +44,7 @@ public class CustomerRepositoryTests {
 	@Test
 	public void findCustomerByEmailFailTest() {
 		Optional<CustomerEntity> customer = Optional.ofNullable(repository.findCustomerByEmail(MISSING_EMAIL));
-		assertTrue(customer.isEmpty());
+		assertFalse(customer.isPresent());
 	}
 	
 	@Test
@@ -58,6 +58,6 @@ public class CustomerRepositoryTests {
 	@Test
 	public void findExternalIdFailTest() {
 		Optional<CustomerEntity> customer = Optional.ofNullable(repository.findCustomerByExternalId(MISSING_EXTERNAL_ID));
-		assertTrue(customer.isEmpty());	
+		assertFalse(customer.isPresent());	
 	}
 }

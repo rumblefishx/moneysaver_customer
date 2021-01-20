@@ -13,7 +13,7 @@ public class EmailCheckerValidator implements ConstraintValidator<EmailChecker, 
 	public boolean isValid(String inputEmail, ConstraintValidatorContext context) {
 		
 		if(inputEmail != null 
-				&& !inputEmail.isBlank()
+				&& !(inputEmail.trim().length() == 0)
 				&& !inputEmail.matches(EMAIL_REGEX))
 			return false; 
 		return true;

@@ -99,7 +99,7 @@ public class CustomerOperationsImpl implements CustomerOperations{
 		log.info("looking for the customer in the database...");
 		entity = repository.findById(patch.getCustomerId());
 		
-		if(entity.isEmpty())
+		if(entity == null)
 			throw new CustomerIdNotFoundException(patch.getCustomerId());
 	
 		entity = Optional.of(converter.transferPatchToEntity(patch,entity.get()));
@@ -184,7 +184,7 @@ public class CustomerOperationsImpl implements CustomerOperations{
 	 */
 	private void checkEmailRegister(String email) {	
 		
-		if(email != null && !email.isBlank()) {
+		if(email != null && !(email.trim().length() == 0)) {
 			Optional<CustomerEntity> entity = Optional.ofNullable(repository.findCustomerByEmail(email));
 		
 			if(entity.isPresent())
