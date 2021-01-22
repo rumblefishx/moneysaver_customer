@@ -4,6 +4,7 @@ import java.util.Locale;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -171,6 +172,15 @@ public class MoneySaverController {
 		log.info("Delivering external login response...");
 		response.setResponseBody(customerOperations.findUserByExternalTokenId(tokenData));
 		
+		return ResponseEntity.ok(response);
+	}
+
+	@GetMapping("/customer/")
+	public ResponseEntity<CustomerResponseDto> getCustomerById(@RequestParam("customerId") @NotNull(message="customer.by.id.notnull") Long customerId){
+		CustomerResponseDto response = new CustomerResponseDto();
+
+		response.setResponseBody(customerOperations.findByCustomerId(customerId));
+
 		return ResponseEntity.ok(response);
 	}
 }

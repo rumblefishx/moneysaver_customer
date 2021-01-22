@@ -41,4 +41,11 @@ public interface CustomerOperations {
 	 * @return CustomerOutputDTO instance with customer details
 	 */
 	public CustomerOutputDTO findUserByExternalTokenId(ExternalTokenDataDto tokenData);
+
+	/**
+	 * Method responsible for find a customer based in his id
+	 * @param customerId : input parameter with the customer id
+	 * @return CustomerOutputDTO instance with customer details
+	 */
+	public CustomerOutputDTO findByCustomerId(Long customerId);
 }

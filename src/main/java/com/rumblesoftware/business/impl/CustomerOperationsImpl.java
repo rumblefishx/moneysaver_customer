@@ -193,4 +193,19 @@ public class CustomerOperationsImpl implements CustomerOperations{
 		
 	}
 
+	/**
+	 * Method responsible for find a customer by his ID
+	 * @param customerId : input parameter filled with the id to be searched
+	 * @return CustomerOutputDTO instance filled with customer details
+	 */
+	@Override
+	public CustomerOutputDTO findByCustomerId(Long customerId) {
+		Optional<CustomerEntity> entity = repository.findById(customerId);
+		
+		if(!entity.isPresent())
+			throw new CustomerNotFoundException(customerId.toString());
+
+		return converter.convertEntityToOutput(entity.get());
+	}
+
 }
