@@ -13,6 +13,7 @@ import com.rumblesoftware.exception.CustomerIdNotFoundException;
 import com.rumblesoftware.exception.CustomerNotFoundException;
 import com.rumblesoftware.exception.EmailAlreadyRegisteredException;
 import com.rumblesoftware.exception.InvalidPasswordException;
+import com.rumblesoftware.exception.LoginDataNotFoundException;
 import com.rumblesoftware.io.input.dto.CustomerIOConverter;
 import com.rumblesoftware.io.input.dto.CustomerInputDTO;
 import com.rumblesoftware.io.input.dto.CustomerInputPatchDto;
@@ -124,7 +125,7 @@ public class CustomerOperationsImpl implements CustomerOperations{
 			CustomerEntity entity = repository.findCustomerByEmail(email);
 
 			if (entity == null)
-				throw new CustomerNotFoundException(email);
+				throw new LoginDataNotFoundException();
 			
 			log.info("checking user credentials...");
 			output = authenticate(entity, passwd);

@@ -16,6 +16,7 @@ import com.rumblesoftware.exception.EmailAlreadyRegisteredException;
 import com.rumblesoftware.exception.ExternalTokenValidationException;
 import com.rumblesoftware.exception.InvalidExternalTokenException;
 import com.rumblesoftware.exception.InvalidPasswordException;
+import com.rumblesoftware.exception.LoginDataNotFoundException;
 import com.rumblesoftware.exception.PasswordHashException;
 import com.rumblesoftware.io.model.CustomerResponseFactory;
 import com.rumblesoftware.io.output.dto.CustomerResponseDto;
@@ -46,6 +47,8 @@ public class HandlerController {
 	private static final String DUPLICATED_EMAIL_MSG = "customer.email.duplicated.message";
 	
 	private static final String ERROR_EXTERNAL_TOKEN_MSG = "external.login.token.error";
+	
+	private static final String LOGIN_DATA_NOT_FOUND = "internal.login.not.found";
 
 	/**
 	 * Method responsible for handle "DateConversionException" exceptions
@@ -136,6 +139,18 @@ public class HandlerController {
 		CustomerResponseDto response = CustomerResponseFactory.getCustomerResponse(String.format(po.getMessage(ERROR_EXTERNAL_TOKEN_MSG),ex.getMessage()));
 		return new ResponseEntity<CustomerResponseDto>(response,HttpStatus.INTERNAL_SERVER_ERROR);	
 	}
+	
+	/**
+	 * Method responsible for handle "LoginDataNotFoundException" exceptions
+	 * @param ex : LoginDataNotFoundException instance
+	 * @return ResponseEntity instance
+	 */
+	@ExceptionHandler(value = LoginDataNotFoundException.class)
+	public ResponseEntity<CustomerResponseDto> handleExternalTokenValidationException(LoginDataNotFoundException ex){
+		CustomerResponseDto response = CustomerResponseFactory.getCustomerResponse(po.getMessage(LOGIN_DATA_NOT_FOUND));
+		return new ResponseEntity<CustomerResponseDto>(response,HttpStatus.INTERNAL_SERVER_ERROR);	
+	}
+	
 	
 	
 	/**

@@ -15,8 +15,11 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -137,10 +140,10 @@ public class MoneySaverController {
 	 * @param password : input parameter filled with user's password
 	 * @return ResponseEntity<CustomerResponseDto> instance filled with created user details
 	 */
-	@GetMapping("/customer/internal_login")
+	@RequestMapping(value="/customer/internal_login/email/{email}/pwd/{password}",method=RequestMethod.GET)
 	public ResponseEntity<CustomerResponseDto> customerLoginByEmailAndPassword
-			(@Valid @Email @RequestParam("email") String email,
-			 @Valid @RequestParam("password") String password){
+			(@Valid @Email @PathVariable("email") String email,
+			 @Valid @PathVariable("password") String password){
 		
 		CustomerResponseDto response = new CustomerResponseDto();		
 		
@@ -158,10 +161,10 @@ public class MoneySaverController {
 	 * @param tokenType : input parameter which describes the external token type
 	 * @return ResponseEntity<CustomerResponseDto> instance filled with created user details
 	 */
-	@GetMapping("/customer/external_login")
+	@RequestMapping(value="/customer/external_login/token/{externalToken}/type/{tokenType}",method=RequestMethod.GET)
 	public ResponseEntity<CustomerResponseDto> customerLoginByExternalEntity
-			(@RequestParam("externalToken") String externalToken,
-			 @ValidExternalIdType(message = "{external.id.type.invalid}") @RequestParam("tokenType") Integer tokenType){
+			(@PathVariable("externalToken") String externalToken,
+			 @ValidExternalIdType(message = "{external.id.type.invalid}") @PathVariable("tokenType") Integer tokenType){
 		
 		log.info("Receiving external login request...");
 		CustomerResponseDto response = new CustomerResponseDto();
@@ -175,8 +178,8 @@ public class MoneySaverController {
 		return ResponseEntity.ok(response);
 	}
 
-	@GetMapping("/customer/")
-	public ResponseEntity<CustomerResponseDto> getCustomerById(@RequestParam("customerId") @NotNull(message="customer.by.id.notnull") Long customerId){
+	@RequestMapping(value = "/customer/{customerId}",method = RequestMethod.GET)
+	public ResponseEntity<CustomerResponseDto> getCustomerById(@PathVariable("customerId") @NotNull(message="customer.by.id.notnull") Long customerId){
 		CustomerResponseDto response = new CustomerResponseDto();
 
 		response.setResponseBody(customerOperations.findByCustomerId(customerId));

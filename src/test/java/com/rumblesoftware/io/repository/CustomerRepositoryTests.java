@@ -28,6 +28,8 @@ public class CustomerRepositoryTests {
 	private static final String MISSING_EMAIL = "maurice.dolly@ie.com";
 	private static final String EXISTANT_EXTERNAL_ID = "abcT10@#";
 	private static final String MISSING_EXTERNAL_ID = "SD2sdc13$";
+	private static final Long EXISTANT_CUSTOMER_ID = 7L;
+	private static final Long NON_EXISTANT_CUSTOMER_ID = 12000L;
 	
 	@Autowired
 	private CustomerRepository repository;
@@ -59,5 +61,17 @@ public class CustomerRepositoryTests {
 	public void findExternalIdFailTest() {
 		Optional<CustomerEntity> customer = Optional.ofNullable(repository.findCustomerByExternalId(MISSING_EXTERNAL_ID));
 		assertFalse(customer.isPresent());	
+	}
+	
+	@Test
+	public void findCustomerByIdOKTest() {
+		Optional<CustomerEntity> customer = repository.findById(EXISTANT_CUSTOMER_ID);
+		assertTrue(customer.isPresent());
+	}
+	
+	@Test
+	public void findCustomerByIdFailTest() {
+		Optional<CustomerEntity> customer = repository.findById(NON_EXISTANT_CUSTOMER_ID);
+		assertFalse(customer.isPresent());
 	}
 }

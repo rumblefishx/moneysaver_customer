@@ -3,6 +3,7 @@ package com.rumblesoftware.business.controler;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -174,6 +175,19 @@ public class MoneySaverControllerTests {
 	}
 	
 	
+//	public void findCustomerById() {
+//		   mockMvc.perform(get("/customer")
+//			        .contentType("application/json")
+//			        .content(mapper.writeValueAsString(input)))
+//			        .andExpect(status().isBadRequest())
+//			        .andExpect(jsonPath("$.errors[*]", 
+//			        		containsInAnyOrder(NAME_NOT_BLANK_ERROR_ID
+//			        				,SURNAME_NOT_BLANK_ERROR_ID
+//			        				,EMAIL_NOT_BLANK_ERROR_ID
+//			        				,PASSWORD_NOT_BLANK_ERROR_ID)));		
+//	}
+
+	
 	private CustomerInputDTO getFilledCustomerInputDTO() {
 		CustomerInputDTO input = new CustomerInputDTO();
 		
@@ -196,5 +210,6 @@ public class MoneySaverControllerTests {
 		    }
 		  };
 	}
-
+	
+	
 }
