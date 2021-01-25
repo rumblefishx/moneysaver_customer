@@ -3,18 +3,22 @@ package com.rumblesoftware.business.controler;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import org.junit.jupiter.api.Test;
+import javax.sql.DataSource;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -25,7 +29,9 @@ import com.rumblesoftware.io.input.dto.CustomerInputDTO;
 import com.rumblesoftware.utils.PostOfficer;
 
 @WebMvcTest(MoneySaverController.class)
-@ActiveProfiles("test")
+@ActiveProfiles(value = "webtest")
+@AutoConfigureTestDatabase
+@RunWith(SpringRunner.class)
 public class MoneySaverControllerTests {
 	
 	private static final String EMAIL = "defaultUser@email.com";
@@ -74,9 +80,12 @@ public class MoneySaverControllerTests {
 	@MockBean
 	private CustomerIOConverter converter;
 	
+	@MockBean
+	private DataSource dataSource;
+	
 	@Test
 	public void createUserWithAllFieldsFilledTest() throws JsonProcessingException, Exception {
-		
+
 		CustomerInputDTO input = getFilledCustomerInputDTO();		
 
 	   mockMvc.perform(post("/customer")
@@ -112,7 +121,7 @@ public class MoneySaverControllerTests {
 	}
 	
 	@Test
-	public void createUserEmailWithoutSufix() throws JsonProcessingException, Exception {
+	public void createUserEmailWithoutSufixTest() throws JsonProcessingException, Exception {
 		CustomerInputDTO input = getFilledCustomerInputDTO();
 		input.setEmail(MISSING_SUFFIX_EMAIL);
 
@@ -154,7 +163,7 @@ public class MoneySaverControllerTests {
 	}
 	
 	@Test
-	public void createUserWithBlankFields() throws JsonProcessingException, Exception {
+	public void createUserWithBlankFieldsTest() throws JsonProcessingException, Exception {
 		CustomerInputDTO input = getFilledCustomerInputDTO();
 		input.setName(BLANK_STRING);
 		input.setEmail(BLANK_STRING);
@@ -174,17 +183,18 @@ public class MoneySaverControllerTests {
 		        				,PASSWORD_NOT_BLANK_ERROR_ID)));
 	}
 	
-	
-//	public void findCustomerById() {
-//		   mockMvc.perform(get("/customer")
-//			        .contentType("application/json")
-//			        .content(mapper.writeValueAsString(input)))
-//			        .andExpect(status().isBadRequest())
-//			        .andExpect(jsonPath("$.errors[*]", 
-//			        		containsInAnyOrder(NAME_NOT_BLANK_ERROR_ID
-//			        				,SURNAME_NOT_BLANK_ERROR_ID
-//			        				,EMAIL_NOT_BLANK_ERROR_ID
-//			        				,PASSWORD_NOT_BLANK_ERROR_ID)));		
+//	@Test
+//	public void findCustomerByIdOkTest() throws Exception {
+//		   mockMvc.perform(get("/customer/7")
+//			        .contentType("application/json"))
+//			        .andExpect(status().isOk());		
+//	}
+//	
+//	@Test
+//	public void findCustomerByIdFailTest() throws Exception {
+//		   mockMvc.perform(get("/customer/2034")
+//			        .contentType("application/json"))
+//			        .andExpect(status().isNotFound());		
 //	}
 
 	
