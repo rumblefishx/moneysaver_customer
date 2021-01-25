@@ -17,7 +17,7 @@ import com.rumblesoftware.io.repository.CustomerRepositoryTests;
 @SpringBootTest(webEnvironment=WebEnvironment.RANDOM_PORT)
 @ActiveProfiles({"test", "webtest"}) 
 @Suite.SuiteClasses(value = { CustomerOperationsTests.class,MoneySaverControllerTests.class,CustomerRepositoryTests.class })
-public class MoneySaverApplicationTests {
+public class MoneySaverApplicationTest {
 	
 	@Test
 	public void contextLoads() {
