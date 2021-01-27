@@ -2,6 +2,7 @@ package com.rumblesoftware.business.controler;
 
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.Matchers.containsInAnyOrder;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -24,8 +25,10 @@ import org.springframework.test.web.servlet.MockMvc;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rumblesoftware.business.CustomerOperations;
+import com.rumblesoftware.exception.CustomerIdNotFoundException;
 import com.rumblesoftware.io.input.dto.CustomerIOConverter;
 import com.rumblesoftware.io.input.dto.CustomerInputDTO;
+import com.rumblesoftware.io.input.dto.CustomerInputPatchDto;
 import com.rumblesoftware.utils.PostOfficer;
 
 @WebMvcTest(MoneySaverController.class)
@@ -50,12 +53,25 @@ public class MoneySaverControllerTests {
 	
 	private static final String NAME_MAX_LENGTH_ERROR_ID = "customer.input.name.maxlength";
 	
-	private static final String SURNAME_MAX_LENGTH_ERROR_ID = "customer.input.name.maxlength";
+	private static final String SURNAME_MAX_LENGTH_ERROR_ID = "customer.input.surname.maxlength";
+												
 	
 	private static final String NAME_NOT_BLANK_ERROR_ID = "customer.input.name.notblank";
 	private static final String SURNAME_NOT_BLANK_ERROR_ID = "customer.input.surname.notblank";
 	private static final String EMAIL_NOT_BLANK_ERROR_ID = "customer.input.email.notblank";
 	private static final String PASSWORD_NOT_BLANK_ERROR_ID = "customer.input.password.notblank";
+	
+	private static final String CUSTOMER_ID_NULL_ERROR_ID ="customer.input.id.notnull";
+	private static final String INPUT_GENDER_MAXLENGTH_ERROR_ID = "customer.input.gender.maxlength";
+	private static final String INPUT_GENDER_INVALID_ERROR_ID = "customer.input.gender.invalid";
+	private static final String INVALID_PASSWORD_ERROR_ID = "customer.input.password.invalid";
+	private static final String PASSWORD_MAXLENGTH_ERROR_ID = "customer.input.password.maxlength";
+	private static final String INVALID_DOB_ERROR_ID = "customer.input.dateofbirth.invalid";
+
+	private static final String LONG_GENDER = "MM";
+	private static final String LONG_PASSWORD = "2132142152151234";
+	private static final String INVALID_DOB = "30/02/2020";
+
 	
 	private static final String LONGER_USER_NAME = "MY NAME IS REALLY HUGE. I AM TOTALLY SURE ABOUT IT";
 	
@@ -151,7 +167,7 @@ public class MoneySaverControllerTests {
 	@Test
 	public void createUserWithLongSurnameTest() throws JsonProcessingException, Exception {
 		CustomerInputDTO input = getFilledCustomerInputDTO();
-		input.setName(LONGER_USER_SURNAME);
+		input.setSurname(LONGER_USER_SURNAME);
 		
 		Mockito.when(po.getMessage(Mockito.anyString())).thenAnswer(returnTheSameInput());
 		
@@ -183,24 +199,82 @@ public class MoneySaverControllerTests {
 		        				,PASSWORD_NOT_BLANK_ERROR_ID)));
 	}
 	
-//	@Test
-//	public void findCustomerByIdOkTest() throws Exception {
-//		   mockMvc.perform(get("/customer/7")
-//			        .contentType("application/json"))
-//			        .andExpect(status().isOk());		
-//	}
-//	
-//	@Test
-//	public void findCustomerByIdFailTest() throws Exception {
-//		   mockMvc.perform(get("/customer/2034")
-//			        .contentType("application/json"))
-//			        .andExpect(status().isNotFound());		
-//	}
+	@Test
+	public void updateCustomerOkTest() throws JsonProcessingException, Exception {
+		Mockito.when(po.getMessage(Mockito.anyString())).thenAnswer(returnTheSameInput());
+		
+		mockMvc.perform(patch("/customer")
+			        .contentType("application/json")
+			        .content(mapper.writeValueAsString(getFilledCustomerPatchDTO())))
+			        .andExpect(status().isOk());	
+	}
+	
+	@Test
+	public void updateCustomerNotFoundTest() throws JsonProcessingException, Exception {
+		Mockito.when(po.getMessage(Mockito.anyString())).thenAnswer(returnTheSameInput());
+		Mockito.when(customerOperations.updateCustomer(Mockito.any())).thenThrow(CustomerIdNotFoundException.class);  
+		
+		mockMvc.perform(patch("/customer")
+			        .contentType("application/json")
+			        .content(mapper.writeValueAsString(getFilledCustomerPatchDTO())))
+			        .andExpect(status().isNotFound());
+	
+	}
+	
+	@Test
+	public void updateCustomerNullableTest() throws JsonProcessingException, Exception {
+		Mockito.when(po.getMessage(Mockito.anyString())).thenAnswer(returnTheSameInput());
+		
+		CustomerInputPatchDto dto = getFilledCustomerPatchDTO();
+		dto.setCustomerId(null);
+		
+		mockMvc.perform(patch("/customer")
+			        .contentType("application/json")
+			        .content(mapper.writeValueAsString(dto)))
+			        .andExpect(status().isBadRequest())
+			        .andExpect(jsonPath("$.errors[*]", 
+			        		containsInAnyOrder(CUSTOMER_ID_NULL_ERROR_ID)));
+	}
 
+	@Test
+	public void updateCustomerMaxLenghTest() throws JsonProcessingException, Exception {
+		Mockito.when(po.getMessage(Mockito.anyString())).thenAnswer(returnTheSameInput());
+		
+		CustomerInputPatchDto dto = getFilledCustomerPatchDTO();
+		dto.setName(LONGER_USER_NAME);
+		dto.setSurname(LONGER_USER_SURNAME);
+		dto.setGender(LONG_GENDER);
+		dto.setPassword(LONG_PASSWORD);
+		dto.setDateOfBirth(INVALID_DOB);
+		
+		mockMvc.perform(patch("/customer")
+			        .contentType("application/json")
+			        .content(mapper.writeValueAsString(dto)))
+			        .andExpect(status().isBadRequest())
+			        .andExpect(jsonPath("$.errors[*]", 
+			        		containsInAnyOrder(NAME_MAX_LENGTH_ERROR_ID,
+			        				SURNAME_MAX_LENGTH_ERROR_ID,
+			        				INPUT_GENDER_MAXLENGTH_ERROR_ID,
+			        				PASSWORD_MAXLENGTH_ERROR_ID,
+			        				INVALID_PASSWORD_ERROR_ID,
+			        				INPUT_GENDER_INVALID_ERROR_ID,
+			        				INVALID_DOB_ERROR_ID)));
+	}
 	
 	private CustomerInputDTO getFilledCustomerInputDTO() {
 		CustomerInputDTO input = new CustomerInputDTO();
 		
+		input.setEmail(EMAIL);
+		input.setName(NAME);
+		input.setSurname(SURNAME);
+		input.setPassword(PASSWORD);
+		
+		return input;
+	}
+	
+	private CustomerInputPatchDto getFilledCustomerPatchDTO() {
+		CustomerInputPatchDto input = new CustomerInputPatchDto();
+		input.setCustomerId(2000L);
 		input.setEmail(EMAIL);
 		input.setName(NAME);
 		input.setSurname(SURNAME);
