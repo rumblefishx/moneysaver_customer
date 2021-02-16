@@ -12,11 +12,7 @@ public class CustomerOutputDTO {
 	
 	private String surname;
 	
-	private Gender gender;
-	
 	private String email;
-	
-	private String dateOfBirth;
 
 	public long getCustomerId() {
 		return customerId;
@@ -56,22 +52,6 @@ public class CustomerOutputDTO {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getDateOfBirth() {
-		return dateOfBirth;
-	}
-
-	public void setDateOfBirth(String dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
-	}
-
-	public Gender getGender() {
-		return gender;
-	}
-
-	public void setGender(Gender gender) {
-		this.gender = gender;
 	}
 	
 }

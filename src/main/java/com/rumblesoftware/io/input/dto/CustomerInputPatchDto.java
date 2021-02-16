@@ -35,13 +35,7 @@ public class CustomerInputPatchDto {
 	 */
 	@Length(max = 60,message="customer.input.surname.maxlength")
 	private String surname;
-	
-	/**
-	 * User's gender
-	 */
-	@Length(max = 1,message="customer.input.gender.maxlength")
-	@ValidGender(message="customer.input.gender.invalid")
-	private String gender;
+
 	
 	/**
 	 * User's email
@@ -56,12 +50,6 @@ public class CustomerInputPatchDto {
 	@Length(max = 12,message="customer.input.password.maxlength")
 	@ValidPassword(message = "customer.input.password.invalid")
 	private String password;
-	
-	/**
-	 * User's dateOfBirth
-	 */
-	@ValidDate(message="customer.input.dateofbirth.invalid")
-	private String dateOfBirth;
 
 	
 	/**
@@ -96,21 +84,6 @@ public class CustomerInputPatchDto {
 		this.surname = surname;
 	}
 
-	/**
-	 * Get the user's gender
-	 * @return user's gender
-	 */
-	public String getGender() {
-		return gender;
-	}
-
-	/**
-	 * Set a gender to the user
-	 * @param gender : input parameter filled with a gender
-	 */
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
 
 	/**
 	 * Get the user's email
@@ -144,21 +117,6 @@ public class CustomerInputPatchDto {
 		this.password = password;
 	}
 
-	/**
-	 * Get the user's date of birth
-	 * @return user's date of birth
-	 */
-	public String getDateOfBirth() {
-		return dateOfBirth;
-	}
-
-	/**
-	 * Set a date of birth to the user
-	 * @param dateOfBirth : input parameter filled with a date of birth
-	 */
-	public void setDateOfBirth(String dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
-	}
 
 	/**
 	 * Get the user's id
