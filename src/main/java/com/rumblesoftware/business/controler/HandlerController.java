@@ -148,7 +148,7 @@ public class HandlerController {
 	@ExceptionHandler(value = LoginDataNotFoundException.class)
 	public ResponseEntity<CustomerResponseDto> handleExternalTokenValidationException(LoginDataNotFoundException ex){
 		CustomerResponseDto response = CustomerResponseFactory.getCustomerResponse(po.getMessage(LOGIN_DATA_NOT_FOUND));
-		return new ResponseEntity<CustomerResponseDto>(response,HttpStatus.INTERNAL_SERVER_ERROR);	
+		return new ResponseEntity<CustomerResponseDto>(response,HttpStatus.NOT_FOUND);	
 	}
 	
 	

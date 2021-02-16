@@ -68,10 +68,7 @@ public class MoneySaverControllerTests {
 	private static final String PASSWORD_MAXLENGTH_ERROR_ID = "customer.input.password.maxlength";
 	private static final String INVALID_DOB_ERROR_ID = "customer.input.dateofbirth.invalid";
 
-	private static final String LONG_GENDER = "MM";
 	private static final String LONG_PASSWORD = "2132142152151234";
-	private static final String INVALID_DOB = "30/02/2020";
-
 	
 	private static final String LONGER_USER_NAME = "MY NAME IS REALLY HUGE. I AM TOTALLY SURE ABOUT IT";
 	
@@ -243,9 +240,7 @@ public class MoneySaverControllerTests {
 		CustomerInputPatchDto dto = getFilledCustomerPatchDTO();
 		dto.setName(LONGER_USER_NAME);
 		dto.setSurname(LONGER_USER_SURNAME);
-		dto.setGender(LONG_GENDER);
 		dto.setPassword(LONG_PASSWORD);
-		dto.setDateOfBirth(INVALID_DOB);
 		
 		mockMvc.perform(patch("/customer")
 			        .contentType("application/json")
