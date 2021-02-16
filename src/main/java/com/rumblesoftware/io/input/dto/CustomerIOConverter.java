@@ -7,7 +7,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.rumblesoftware.io.enums.Gender;
 import com.rumblesoftware.io.model.CustomerEntity;
 import com.rumblesoftware.io.output.dto.CustomerOutputDTO;
 import com.rumblesoftware.utils.PasswordSecurity;
@@ -42,7 +41,7 @@ public class CustomerIOConverter {
 		
 		CustomerOutputDTO output = new CustomerOutputDTO();
 		output.setCustomerActive(true);
-		output.setCustomerId(1100L);
+		output.setCustomerId(0L);
 		output.setEmail(input.getEmail());
 		output.setName(input.getName());
 		output.setSurname(input.getSurname());
@@ -61,8 +60,6 @@ public class CustomerIOConverter {
 		CustomerOutputDTO output = new CustomerOutputDTO();
 		output.setCustomerActive(false);
 		output.setCustomerId(patchDto.getCustomerId());
-		output.setGender(Gender.castStringToEnum(patchDto.getGender()));
-		output.setDateOfBirth(patchDto.getDateOfBirth());
 		output.setEmail(patchDto.getEmail());
 		output.setName(patchDto.getName());
 		output.setSurname(patchDto.getSurname());
@@ -166,14 +163,8 @@ public class CustomerIOConverter {
 		if(patch.getCustomerId() != null)
 			output.setCustomerId(patch.getCustomerId());
 		
-		if(patch.getDateOfBirth() != null)
-			output.setDateOfBirth(patch.getDateOfBirth());
-		
 		if(patch.getEmail() != null)
 			output.setEmail(patch.getEmail());
-		
-		if(patch.getGender() != null)
-			output.setGender(Gender.castStringToEnum(patch.getGender()));
 		
 		if(patch.getName() != null)
 			output.setName(patch.getName());
