@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.validation.constraints.NotNull;
 
 import com.rumblesoftware.enums.ExternalTokenType;
@@ -143,13 +144,12 @@ public class CustomerEntity implements Serializable {
 	}	
 
 	@PrePersist
+	@PreUpdate
 	private void setDates() {
 		Date now = new Date();
 		
 		if(this.creationDate == null) 
-			creationDate = now;
-		
-		if(this.lastUpdate == null)
+			creationDate = now;		
 			lastUpdate = now;
 		
 		this.responsibleUser = RESPONSIBLE_USER;
