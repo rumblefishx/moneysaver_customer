@@ -62,11 +62,8 @@ public class MoneySaverControllerTests {
 	private static final String PASSWORD_NOT_BLANK_ERROR_ID = "customer.input.password.notblank";
 	
 	private static final String CUSTOMER_ID_NULL_ERROR_ID ="customer.input.id.notnull";
-	private static final String INPUT_GENDER_MAXLENGTH_ERROR_ID = "customer.input.gender.maxlength";
-	private static final String INPUT_GENDER_INVALID_ERROR_ID = "customer.input.gender.invalid";
 	private static final String INVALID_PASSWORD_ERROR_ID = "customer.input.password.invalid";
 	private static final String PASSWORD_MAXLENGTH_ERROR_ID = "customer.input.password.maxlength";
-	private static final String INVALID_DOB_ERROR_ID = "customer.input.dateofbirth.invalid";
 
 	private static final String LONG_PASSWORD = "2132142152151234";
 	
@@ -249,11 +246,8 @@ public class MoneySaverControllerTests {
 			        .andExpect(jsonPath("$.errors[*]", 
 			        		containsInAnyOrder(NAME_MAX_LENGTH_ERROR_ID,
 			        				SURNAME_MAX_LENGTH_ERROR_ID,
-			        				INPUT_GENDER_MAXLENGTH_ERROR_ID,
 			        				PASSWORD_MAXLENGTH_ERROR_ID,
-			        				INVALID_PASSWORD_ERROR_ID,
-			        				INPUT_GENDER_INVALID_ERROR_ID,
-			        				INVALID_DOB_ERROR_ID)));
+			        				INVALID_PASSWORD_ERROR_ID)));
 	}
 	
 	private CustomerInputDTO getFilledCustomerInputDTO() {
