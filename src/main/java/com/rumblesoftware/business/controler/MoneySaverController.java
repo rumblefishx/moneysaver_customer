@@ -76,7 +76,7 @@ public class MoneySaverController {
 	@PostMapping("/customer")
 	public ResponseEntity<CustomerResponseDto> createNewCustomer(@Valid @RequestBody CustomerInputDTO customer,BindingResult bindingResult) {
 		
-		log.info("Create New Customer Endpoint - Request Receiver");
+		log.debug("Create New Customer Endpoint - Request Receiver");
 		
 		CustomerResponseDto response = new CustomerResponseDto();
 		
@@ -94,7 +94,7 @@ public class MoneySaverController {
 		
 		response.setResponseBody(customerOperations.createCustomer(customer));
 		
-		log.info("Create New Customer Endpoint - Deliveing response...");
+		log.debug("Create New Customer Endpoint - Deliveing response...");
 		
 		return ResponseEntity.ok(response);
 	}
@@ -109,7 +109,7 @@ public class MoneySaverController {
 	public ResponseEntity<CustomerResponseDto> updateCustomer(@Valid @RequestBody CustomerInputPatchDto customer,BindingResult br){
 		CustomerResponseDto response = new CustomerResponseDto();
 		
-		log.info("Receiving an update request...");
+		log.debug("Receiving an update request...");
 		
 		if(customer.getCustomerId() == null) {
 			response.addError(ms.getMessage(CUSTOMER_ID_NOT_NULL, null,Locale.getDefault()));
@@ -147,10 +147,10 @@ public class MoneySaverController {
 		
 		CustomerResponseDto response = new CustomerResponseDto();		
 		
-		log.info("Receiving a internal login request...");
+		log.debug("Receiving a internal login request...");
 		response.setResponseBody(customerOperations.findUserByPasswdAndCredential(email, password));
 		
-		log.info("Delivering internal login response...");
+		log.debug("Delivering internal login response...");
 		
 		return ResponseEntity.ok(response);
 	}
@@ -166,13 +166,13 @@ public class MoneySaverController {
 			(@PathVariable("externalToken") String externalToken,
 			 @ValidExternalIdType(message = "{external.id.type.invalid}") @PathVariable("tokenType") Integer tokenType){
 		
-		log.info("Receiving external login request...");
+		log.debug("Receiving external login request...");
 		CustomerResponseDto response = new CustomerResponseDto();
 		
 		ExternalTokenType tkType = ExternalTokenType.castIntToEnum(tokenType);		
 		ExternalTokenDataDto tokenData = new ExternalTokenDataDto(externalToken,tkType);
 		
-		log.info("Delivering external login response...");
+		log.debug("Delivering external login response...");
 		response.setResponseBody(customerOperations.findUserByExternalTokenId(tokenData));
 		
 		return ResponseEntity.ok(response);

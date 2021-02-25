@@ -49,7 +49,7 @@ public class GoogleExternalLoginImpl implements ExternalTokenValidator {
 		LoginDetailsDto loginDetails = new LoginDetailsDto();
 		LoginDetailsBuilder lb = new LoginDetailsBuilder();
 		
-		log.info("Verifying user token (Google)...");
+		log.debug("Verifying user token (Google)...");
 		
 		if(token.getTokenType() != ExternalTokenType.Google)
 			return null;
@@ -91,7 +91,7 @@ public class GoogleExternalLoginImpl implements ExternalTokenValidator {
 			throw new ExternalTokenValidationException();
 		}
 
-		log.info("delivering token validation result...");
+		log.debug("delivering token validation result...");
 		return loginDetails;
 	}
 

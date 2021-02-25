@@ -81,7 +81,7 @@ public class CustomerOperationsImpl implements CustomerOperations{
 		
 		CustomerEntity entity = converter.convertInputToEntity(customer);
 		
-		log.info("Saving data in the database...");
+		log.debug("Saving data in the database...");
 		entity = repository.save(entity);
 		
 		return converter.convertEntityToOutput(entity);
@@ -97,7 +97,7 @@ public class CustomerOperationsImpl implements CustomerOperations{
 		CustomerOutputDTO output = null;
 		Optional<CustomerEntity> entity = null;
 		
-		log.info("looking for the customer in the database...");
+		log.debug("looking for the customer in the database...");
 		entity = repository.findById(patch.getCustomerId());
 		
 		if(entity == null)
@@ -105,7 +105,7 @@ public class CustomerOperationsImpl implements CustomerOperations{
 	
 		entity = Optional.of(converter.transferPatchToEntity(patch,entity.get()));
 	
-		log.info("saving data update in the database...");
+		log.debug("saving data update in the database...");
 		entity = Optional.of(repository.save(entity.get()));
 		
 		output = converter.convertEntityToOutput(entity.get());
@@ -121,13 +121,13 @@ public class CustomerOperationsImpl implements CustomerOperations{
 		CustomerOutputDTO output = null;
 
 		if (email != null) {
-			log.info("looking for the customer in the database...");
+			log.debug("looking for the customer in the database...");
 			CustomerEntity entity = repository.findCustomerByEmail(email);
 
 			if (entity == null)
 				throw new LoginDataNotFoundException();
 			
-			log.info("checking user credentials...");
+			log.debug("checking user credentials...");
 			output = authenticate(entity, passwd);
 		}
 		return output;
@@ -141,11 +141,11 @@ public class CustomerOperationsImpl implements CustomerOperations{
 	public CustomerOutputDTO findUserByExternalTokenId(ExternalTokenDataDto tokenData) {
 		LoginDetailsDto loginDetails = mediator.mediate(tokenData);
 		
-		log.info("looking for the user in the database...");
+		log.debug("looking for the user in the database...");
 		CustomerEntity entity = repository.findCustomerByEmail(loginDetails.getEmail());
 		
 		if(entity == null) {
-			log.info("external login user not registered. saving data in the database...");
+			log.debug("external login user not registered. saving data in the database...");
 			entity = converter.castLoginDetailsToEntity(loginDetails);
 			entity.setActive(true);
 			entity = repository.save(entity);
@@ -163,7 +163,7 @@ public class CustomerOperationsImpl implements CustomerOperations{
 	public CustomerOutputDTO authenticate(CustomerEntity entity, String requestUserPassword) {
 		CustomerOutputDTO output = null;
 		
-		log.info("Hashing password...");
+		log.debug("Hashing password...");
 		Optional<String> requestPassword = passwordSecurity.hashPassword(requestUserPassword, entity.getSalt());
 
 		if (requestPassword.isPresent()) {
